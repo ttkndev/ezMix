@@ -21,10 +21,10 @@
                 <ResourceDictionary Source="Assets/Styles/Colors.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/Brushes.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/SemanticTokens.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/LightTheme.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/LayoutStyle.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/DarkTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

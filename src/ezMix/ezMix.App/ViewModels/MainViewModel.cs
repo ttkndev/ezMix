@@ -16,6 +16,7 @@ namespace ezMix.App.ViewModels
         private string _subTitle = string.Empty;
         private bool _isHomeActive;
         private bool _isAboutActive;
+        private bool _isDarkMode;
 
         public ObservableCollection<FooterLink> SocialItems { get; }
         public ObservableCollection<FooterLink> ContactItems { get; }
@@ -23,6 +24,7 @@ namespace ezMix.App.ViewModels
         public RelayCommand HomeCommand { get; }
         public RelayCommand AboutCommand { get; }
         public RelayCommand OpenFooterActionCommand { get; }
+        public RelayCommand ToggleThemeCommand { get; }
 
         public MainViewModel(INavigationService navigationService, IExternalLinkService externalLinkService)
         {
@@ -32,6 +34,7 @@ namespace ezMix.App.ViewModels
             HomeCommand = new RelayCommand(_ => NavigateHome());
             AboutCommand = new RelayCommand(_ => NavigateAbout());
             OpenFooterActionCommand = new RelayCommand(ExecuteFooterAction);
+            ToggleThemeCommand = new RelayCommand(_ => ToggleTheme());
 
             SocialItems = new ObservableCollection<FooterLink>
             {
@@ -57,6 +60,11 @@ namespace ezMix.App.ViewModels
         public bool IsHomeActive { get => _isHomeActive; set => SetProperty(ref _isHomeActive, value); }
         public bool IsAboutActive { get => _isAboutActive; set => SetProperty(ref _isAboutActive, value); }
 
+        /// <summary>
+        /// Cờ trạng thái theme hiện tại để đổi nội dung nút và dễ mở rộng lưu setting sau này.
+        /// </summary>
+        public bool IsDarkMode { get => _isDarkMode; set => SetProperty(ref _isDarkMode, value); }
+
         private void ExecuteFooterAction(object parameter)
         {
             _externalLinkService.Open(parameter as string ?? string.Empty);
@@ -69,6 +77,12 @@ namespace ezMix.App.ViewModels
             SubTitle = _navigationService.CurrentSubtitle;
             IsHomeActive = true;
             IsAboutActive = false;
+        }
+
+        private void ToggleTheme()
+        {
+            IsDarkMode = !IsDarkMode;
+            App.ApplyTheme(IsDarkMode);
         }
 
         private void NavigateAbout()
