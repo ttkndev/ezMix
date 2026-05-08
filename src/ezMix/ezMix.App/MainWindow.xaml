@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:ezMix.App.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ezMix" Height="600" Width="1000" MinHeight="480" MinWidth="640">
+        Title="ezMix" Height="640" Width="1100" MinHeight="520" MinWidth="720">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
@@ -20,60 +20,88 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top" MinHeight="50" Style="{StaticResource AppBarStyle}">
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="18">ez</TextBlock>
-                <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="18" Margin="0,0,20,0">Mix</TextBlock>
+        <Border DockPanel.Dock="Top" MinHeight="62" Style="{StaticResource AppBarStyle}" Padding="20,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-                <Button Content="🏠 Trang chủ" Command="{Binding HomeCommand}" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="ℹ️ Giới thiệu" Command="{Binding AboutCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="20" Text="ez"/>
+                    <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="20" Text="Mix"/>
+                </StackPanel>
 
-                <TextBlock Text="{Binding SubTitle, FallbackValue=Tiêu đề phụ}"
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="Trang chủ" Command="{Binding HomeCommand}" Style="{StaticResource NavButtonStyle}"/>
+                    <Button Content="Giới thiệu" Command="{Binding AboutCommand}" Style="{StaticResource NavButtonStyle}"/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="2"
+                           Text="{Binding SubTitle}"
                            Foreground="#BDC3C7"
-                           FontSize="14"
+                           FontSize="13"
+                           TextTrimming="CharacterEllipsis"
+                           MaxWidth="240"
                            VerticalAlignment="Center"
-                           Margin="32 0 0 0"/>
-            </WrapPanel>
+                           HorizontalAlignment="Right"/>
+            </Grid>
         </Border>
 
-        <Border DockPanel.Dock="Bottom" MinHeight="50" Style="{StaticResource AppBarStyle}">
-            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <!-- Icon bản quyền -->
-                <TextBlock Text="© 2026 - ttkndev"
-                   Style="{StaticResource AppBarTextStyle}"
-                   FontSize="14" Margin="5,0,8,0"/>
+        <Border DockPanel.Dock="Bottom" MinHeight="72" Style="{StaticResource AppBarStyle}" Padding="20,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <ItemsControl ItemsSource="{Binding FooterItems}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Content="{Binding Label}"
-                                    Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                    CommandParameter="{Binding ActionValue}"
-                                    Style="{StaticResource NavButtonStyle}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </WrapPanel>
+                <TextBlock Grid.Column="0" Text="© 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="13" VerticalAlignment="Center" Margin="0,0,20,0"/>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Social:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                    <ItemsControl ItemsSource="{Binding SocialItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Label}"
+                                        Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding ActionValue}"
+                                        Style="{StaticResource NavButtonStyle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <TextBlock Text="Contact:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                    <ItemsControl ItemsSource="{Binding ContactItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Label}"
+                                        Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding ActionValue}"
+                                        Style="{StaticResource NavButtonStyle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
         </Border>
 
         <Grid>
             <ContentControl Content="{Binding CurrentView}"/>
 
-            <Grid Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}"
-                  Background="{DynamicResource Brush.Overlay}">
+            <Grid Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}" Background="{DynamicResource Brush.Overlay}">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding OverlayMessage, FallbackValue=Đang tải...}"
-                               Foreground="{DynamicResource Brush.Text.OnPrimary}"
-                               FontSize="16"
-                               HorizontalAlignment="Center"/>
-                    <ProgressBar IsIndeterminate="True"
-                                 Width="200" Height="15"
-                                 Margin="0 12 0 0"/>
+                    <TextBlock Text="{Binding OverlayMessage, FallbackValue=Đang tải...}" Foreground="{DynamicResource Brush.Text.OnPrimary}" FontSize="16" HorizontalAlignment="Center"/>
+                    <ProgressBar IsIndeterminate="True" Width="200" Height="15" Margin="0 12 0 0"/>
                 </StackPanel>
             </Grid>
         </Grid>

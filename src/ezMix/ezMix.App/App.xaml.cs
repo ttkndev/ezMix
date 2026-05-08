@@ -1,4 +1,5 @@
-﻿using ezMix.App.ViewModels;
+﻿using ezMix.App.Services;
+using ezMix.App.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
@@ -20,10 +21,11 @@ namespace ezMix.App
 
             var services = new ServiceCollection();
 
-            services.AddScoped<MainViewModel>();
-            services.AddScoped<HomeViewModel>();
-            services.AddScoped<AboutViewModel>();
-
+            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<AboutViewModel>();
+            services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<IExternalLinkService, ExternalLinkService>();
+            services.AddSingleton<MainViewModel>();
 
             Services = services.BuildServiceProvider();
 

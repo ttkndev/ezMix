@@ -6,21 +6,39 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="20">
+        <Grid Margin="24" MaxWidth="980">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
             <StackPanel>
-                <TextBlock Text="Trang chủ" FontSize="34" FontWeight="SemiBold" Margin="0,0,0,16"/>
-                <TextBlock Text="Button style giống Bootstrap:" FontSize="16" Margin="0,0,0,10"/>
-                <WrapPanel>
-                    <Button Content="Primary" Style="{StaticResource BtnPrimary}"/>
-                    <Button Content="Secondary" Style="{StaticResource BtnSecondary}"/>
-                    <Button Content="Success" Style="{StaticResource BtnSuccess}"/>
-                    <Button Content="Danger" Style="{StaticResource BtnDanger}"/>
-                    <Button Content="Warning" Style="{StaticResource BtnWarning}"/>
-                    <Button Content="Info" Style="{StaticResource BtnInfo}"/>
-                    <Button Content="Dark" Style="{StaticResource BtnDark}"/>
-                    <Button Content="Light" Style="{StaticResource BtnLight}"/>
-                </WrapPanel>
+                <TextBlock Text="{Binding Title}" FontSize="34" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                <TextBlock Text="{Binding Description}" FontSize="16" TextWrapping="Wrap" Margin="0,0,0,20"/>
             </StackPanel>
+
+            <Border Grid.Row="1" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="10" Padding="18" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Năng lực nổi bật" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <ItemsControl ItemsSource="{Binding Highlights}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding StringFormat=• {0}}" FontSize="15" Margin="0,4,0,4" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+
+            <WrapPanel Grid.Row="2" ItemWidth="110" Orientation="Horizontal">
+                <Button Content="Primary" Style="{StaticResource BtnPrimary}"/>
+                <Button Content="Secondary" Style="{StaticResource BtnSecondary}"/>
+                <Button Content="Success" Style="{StaticResource BtnSuccess}"/>
+                <Button Content="Danger" Style="{StaticResource BtnDanger}"/>
+                <Button Content="Warning" Style="{StaticResource BtnWarning}"/>
+                <Button Content="Info" Style="{StaticResource BtnInfo}"/>
+            </WrapPanel>
         </Grid>
     </ScrollViewer>
 </UserControl>
