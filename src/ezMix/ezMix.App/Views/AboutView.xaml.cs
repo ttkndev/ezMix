@@ -18,9 +18,9 @@ namespace ezMix.App.Views
     /// <summary>
     /// Interaction logic for ContactView.xaml
     /// </summary>
-    public partial class ContactView : UserControl
+    public partial class AboutView : UserControl
     {
-        public ContactView()
+        public AboutView()
         {
             InitializeComponent();
         }

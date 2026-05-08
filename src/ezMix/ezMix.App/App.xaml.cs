@@ -22,7 +22,7 @@ namespace ezMix.App
 
             services.AddScoped<MainViewModel>();
             services.AddScoped<HomeViewModel>();
-            services.AddScoped<ContactViewModel>();
+            services.AddScoped<AboutViewModel>();
 
 
             Services = services.BuildServiceProvider();

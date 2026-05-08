@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ezMix.App.ViewModels
 {
-    public class ContactViewModel : BaseViewModel
+    public class AboutViewModel : BaseViewModel
     {
     }
 }
