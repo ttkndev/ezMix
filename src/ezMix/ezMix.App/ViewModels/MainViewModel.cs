@@ -14,6 +14,8 @@ namespace ezMix.App.ViewModels
         private bool _isBusy = false;
         private string _overlayMessage = "Đang tải...";
         private string _subTitle = string.Empty;
+        private bool _isHomeActive;
+        private bool _isAboutActive;
 
         public ObservableCollection<FooterLink> SocialItems { get; }
         public ObservableCollection<FooterLink> ContactItems { get; }
@@ -52,6 +54,8 @@ namespace ezMix.App.ViewModels
         public bool IsBusy { get => _isBusy; set => SetProperty(ref _isBusy, value); }
         public string OverlayMessage { get => _overlayMessage; set => SetProperty(ref _overlayMessage, value); }
         public string SubTitle { get => _subTitle; set => SetProperty(ref _subTitle, value); }
+        public bool IsHomeActive { get => _isHomeActive; set => SetProperty(ref _isHomeActive, value); }
+        public bool IsAboutActive { get => _isAboutActive; set => SetProperty(ref _isAboutActive, value); }
 
         private void ExecuteFooterAction(object parameter)
         {
@@ -63,6 +67,8 @@ namespace ezMix.App.ViewModels
             _navigationService.NavigateHome();
             CurrentView = _navigationService.CurrentView;
             SubTitle = _navigationService.CurrentSubtitle;
+            IsHomeActive = true;
+            IsAboutActive = false;
         }
 
         private void NavigateAbout()
@@ -70,6 +76,8 @@ namespace ezMix.App.ViewModels
             _navigationService.NavigateAbout();
             CurrentView = _navigationService.CurrentView;
             SubTitle = _navigationService.CurrentSubtitle;
+            IsHomeActive = false;
+            IsAboutActive = true;
         }
     }
 }
