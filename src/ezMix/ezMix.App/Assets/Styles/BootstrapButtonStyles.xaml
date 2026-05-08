@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="BootstrapButtonBase" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Primary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Primary.Border}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="14,8"/>
+        <Setter Property="Margin" Value="0,0,8,8"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="MinWidth" Value="88"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="ButtonBorder"
+                            CornerRadius="6"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.92"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.82"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.65"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnPrimary" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Primary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Primary.Border}"/>
+    </Style>
+    <Style x:Key="BtnSecondary" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Secondary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Secondary.Border}"/>
+    </Style>
+    <Style x:Key="BtnSuccess" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Success}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Success.Border}"/>
+    </Style>
+    <Style x:Key="BtnDanger" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Danger}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Danger.Border}"/>
+    </Style>
+    <Style x:Key="BtnDark" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Dark}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Dark.Border}"/>
+    </Style>
+    <Style x:Key="BtnLight" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Light}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Bs.Light.Text}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Light.Border}"/>
+    </Style>
+</ResourceDictionary>

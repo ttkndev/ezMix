@@ -9,11 +9,43 @@
     <Color x:Key="Color.Text.OnPrimary">#FFFFFF</Color>
     <Color x:Key="Color.Overlay">#80000000</Color>
 
+
+
+    <!-- Bootstrap-like palette -->
+    <Color x:Key="Color.Bs.Primary">#0D6EFD</Color>
+    <Color x:Key="Color.Bs.Primary.Border">#0B5ED7</Color>
+    <Color x:Key="Color.Bs.Secondary">#6C757D</Color>
+    <Color x:Key="Color.Bs.Secondary.Border">#565E64</Color>
+    <Color x:Key="Color.Bs.Success">#198754</Color>
+    <Color x:Key="Color.Bs.Success.Border">#157347</Color>
+    <Color x:Key="Color.Bs.Danger">#DC3545</Color>
+    <Color x:Key="Color.Bs.Danger.Border">#B02A37</Color>
+    <Color x:Key="Color.Bs.Dark">#212529</Color>
+    <Color x:Key="Color.Bs.Dark.Border">#1A1E21</Color>
+    <Color x:Key="Color.Bs.Light">#F8F9FA</Color>
+    <Color x:Key="Color.Bs.Light.Border">#D3D9DF</Color>
+    <Color x:Key="Color.Bs.Light.Text">#212529</Color>
+
     <!-- Brushes -->
     <SolidColorBrush x:Key="Brush.Brand.Primary" Color="{StaticResource Color.Brand.Primary}"/>
     <SolidColorBrush x:Key="Brush.Brand.Accent" Color="{StaticResource Color.Brand.Accent}"/>
     <SolidColorBrush x:Key="Brush.Brand.SurfaceHover" Color="{StaticResource Color.Brand.SurfaceHover}"/>
     <SolidColorBrush x:Key="Brush.Brand.SurfacePressed" Color="{StaticResource Color.Brand.SurfacePressed}"/>
+
+
+    <SolidColorBrush x:Key="Brush.Bs.Primary" Color="{StaticResource Color.Bs.Primary}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Primary.Border" Color="{StaticResource Color.Bs.Primary.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Secondary" Color="{StaticResource Color.Bs.Secondary}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Secondary.Border" Color="{StaticResource Color.Bs.Secondary.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Success" Color="{StaticResource Color.Bs.Success}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Success.Border" Color="{StaticResource Color.Bs.Success.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Danger" Color="{StaticResource Color.Bs.Danger}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Danger.Border" Color="{StaticResource Color.Bs.Danger.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Dark" Color="{StaticResource Color.Bs.Dark}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Dark.Border" Color="{StaticResource Color.Bs.Dark.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Light" Color="{StaticResource Color.Bs.Light}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Light.Border" Color="{StaticResource Color.Bs.Light.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Light.Text" Color="{StaticResource Color.Bs.Light.Text}"/>
 
     <SolidColorBrush x:Key="Brush.Text.OnPrimary" Color="{StaticResource Color.Text.OnPrimary}"/>
     <SolidColorBrush x:Key="Brush.Overlay" Color="{StaticResource Color.Overlay}"/>
