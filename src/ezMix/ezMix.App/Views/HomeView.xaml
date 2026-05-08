@@ -5,12 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              d:DesignHeight="960" d:DesignWidth="1366">
-    <Grid Background="{DynamicResource Brush.Background.Page}">
+    <Grid Background="#F8FAFC">
         <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,0,12">
             <Grid Style="{StaticResource PageContentGridStyle}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
@@ -123,21 +121,6 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="2" Background="#FFF8E1" BorderBrush="#F8E5A5" BorderThickness="1" CornerRadius="12" Padding="16" Margin="0,0,0,16">
-                    <TextBlock TextWrapping="Wrap"
-                               TextAlignment="Center"
-                               Style="{StaticResource BodyTextStyle}"
-                               Foreground="#7A5A00"
-                               Text="⚠️ Hiện chức năng Chuẩn hóa nhận dạng các kí hiệu A., B., C., D. là kí hiệu đáp án. Bạn nên rà soát và điều chỉnh theo cảnh báo nếu trong nội dung có thêm các kí hiệu này."/>
-                </Border>
-
-                <Border Grid.Row="3" Background="{StaticResource PrimaryBrush}" CornerRadius="12" Padding="16">
-                    <TextBlock Style="{StaticResource BodyTextStyle}"
-                               Foreground="White"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Text="💙 Tác giả luôn nỗ lực để mang lại trải nghiệm tốt, nếu có sai sót rất mong nhận được góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện và hỗ trợ tốt nhất cho cộng đồng. 💙"/>
-                </Border>
             </Grid>
         </ScrollViewer>
     </Grid>
