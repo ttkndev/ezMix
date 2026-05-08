@@ -12,6 +12,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <StackPanel>
@@ -40,7 +41,7 @@
                            Text="⚠️ Lưu ý: Ở chức năng Chuẩn hóa, phần mềm nhận dạng các ký hiệu A. / B. / C. / D. là đáp án lựa chọn. Nếu nội dung câu hỏi có thêm các ký hiệu này, bạn cần rà soát và chỉnh lại theo cảnh báo để đảm bảo kết quả chính xác."/>
             </Border>
 
-            <Border Grid.Row="3" Style="{StaticResource CardPanelStyle}">
+            <Border Grid.Row="3" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Text="Thông tin liên hệ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,10"/>
                     <ItemsControl ItemsSource="{Binding ContactItems}">
@@ -49,20 +50,41 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderThickness="1" BorderBrush="{DynamicResource Brush.Border.Subtle}" CornerRadius="6" Padding="8" Margin="6">
-                                    <TextBlock Text="{Binding Label}" FontSize="14"/>
-                                </Border>
+                                <Button Margin="6"
+                                        Padding="10,6"
+                                        BorderThickness="1"
+                                        BorderBrush="{DynamicResource Brush.Border.Subtle}"
+                                        Background="{DynamicResource Brush.Surface.Card}"
+                                        Foreground="{DynamicResource Brush.Brand.Primary}"
+                                        Cursor="Hand">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="{DynamicResource Brush.Surface.Info}"/>
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border.Info}"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Icon}" Margin="0,0,6,0"/>
+                                        <TextBlock Text="{Binding Label}" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-
-                    <Border Margin="0,14,0,0" Padding="12" CornerRadius="8" Background="{DynamicResource Brush.Brand.Primary}">
-                        <TextBlock Style="{StaticResource BodyTextStyle}"
-                                   Foreground="{DynamicResource Brush.Text.OnPrimary}"
-                                   TextWrapping="Wrap"
-                                   Text="💙 Tác giả luôn nỗ lực mang lại trải nghiệm tốt nhất. Nếu có sai sót, rất mong nhận góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện và phục vụ cộng đồng tốt hơn. 💙"/>
-                    </Border>
                 </StackPanel>
+            </Border>
+
+            <Border Grid.Row="4" Style="{StaticResource CardPanelStyle}">
+                <Border Padding="12" CornerRadius="8" Background="{DynamicResource Brush.Brand.Primary}">
+                    <TextBlock Style="{StaticResource BodyTextStyle}"
+                               Foreground="{DynamicResource Brush.Text.OnPrimary}"
+                               TextWrapping="Wrap"
+                               Text="💙 Tác giả luôn nỗ lực mang lại trải nghiệm tốt nhất. Nếu có sai sót, rất mong nhận góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện và phục vụ cộng đồng tốt hơn. 💙"/>
+                </Border>
             </Border>
         </Grid>
     </ScrollViewer>

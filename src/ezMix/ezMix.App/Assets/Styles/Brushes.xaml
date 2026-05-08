@@ -26,5 +26,8 @@
     <SolidColorBrush x:Key="Brush.Bs.Light.Text" Color="{StaticResource Color.Bs.Light.Text}"/>
     <SolidColorBrush x:Key="Brush.Surface.Warning" Color="{StaticResource Color.Surface.Warning}"/>
     <SolidColorBrush x:Key="Brush.Surface.Info" Color="{StaticResource Color.Surface.Info}"/>
+    <SolidColorBrush x:Key="Brush.Surface.Danger" Color="{StaticResource Color.Surface.Danger}"/>
     <SolidColorBrush x:Key="Brush.Border.Info" Color="{StaticResource Color.Border.Info}"/>
+    <SolidColorBrush x:Key="Brush.Border.Warning" Color="{StaticResource Color.Border.Warning}"/>
+    <SolidColorBrush x:Key="Brush.Border.Danger" Color="{StaticResource Color.Border.Danger}"/>
 </ResourceDictionary>
