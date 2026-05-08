@@ -1,5 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="Brush.Text.OnPrimary" Color="{StaticResource Color.Text.OnPrimary}"/>
+    <SolidColorBrush x:Key="Brush.Text.Muted" Color="{StaticResource Color.Text.Muted}"/>
+    <SolidColorBrush x:Key="Brush.Border.Subtle" Color="{StaticResource Color.Border.Subtle}"/>
+    <SolidColorBrush x:Key="Brush.Surface.Card" Color="{StaticResource Color.Surface.Card}"/>
     <SolidColorBrush x:Key="Brush.Overlay" Color="{StaticResource Color.Overlay}"/>
 </ResourceDictionary>

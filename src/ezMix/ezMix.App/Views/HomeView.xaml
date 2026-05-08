@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="24" MaxWidth="980">
+        <Grid Style="{StaticResource PageContentGridStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -14,17 +14,17 @@
             </Grid.RowDefinitions>
 
             <StackPanel>
-                <TextBlock Text="{Binding Title}" FontSize="34" FontWeight="SemiBold" Margin="0,0,0,12"/>
-                <TextBlock Text="{Binding Description}" FontSize="16" TextWrapping="Wrap" Margin="0,0,0,20"/>
+                <TextBlock Text="{Binding Title}" Style="{StaticResource PageTitleTextStyle}" Margin="0,0,0,12"/>
+                <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap" Margin="0,0,0,20"/>
             </StackPanel>
 
-            <Border Grid.Row="1" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="10" Padding="18" Margin="0,0,0,20">
+            <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
                 <StackPanel>
-                    <TextBlock Text="Năng lực nổi bật" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,12"/>
+                    <TextBlock Text="Năng lực nổi bật" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,12"/>
                     <ItemsControl ItemsSource="{Binding Highlights}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding StringFormat=• {0}}" FontSize="15" Margin="0,4,0,4" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding StringFormat=• {0}}" Style="{StaticResource BodyTextStyle}" Margin="0,4,0,4" TextWrapping="Wrap"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

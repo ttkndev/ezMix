@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:ezMix.App.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ezMix" Height="640" Width="1100" MinHeight="520" MinWidth="720">
+        Title="ezMix" Height="640" Width="1100" MinHeight="560" MinWidth="760">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
@@ -20,7 +20,7 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top" MinHeight="45" Style="{StaticResource AppBarStyle}" Padding="20,10">
+        <Border DockPanel.Dock="Top" Style="{StaticResource AppBarStyle}" Padding="20,10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -41,7 +41,7 @@
 
                 <TextBlock Grid.Column="2"
                            Text="{Binding SubTitle}"
-                           Foreground="#BDC3C7"
+                           Foreground="{DynamicResource Brush.Text.Muted}"
                            FontSize="13"
                            TextTrimming="CharacterEllipsis"
                            MaxWidth="240"
@@ -50,7 +50,7 @@
             </Grid>
         </Border>
 
-        <Border DockPanel.Dock="Bottom" MinHeight="45" Style="{StaticResource AppBarStyle}" Padding="20,10">
+        <Border DockPanel.Dock="Bottom" Style="{StaticResource AppBarStyle}" Padding="20,10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -60,7 +60,7 @@
 
                 <TextBlock Grid.Column="0" Text="© 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="13" VerticalAlignment="Center" Margin="0,0,20,0"/>
 
-                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,8,0">
                     <TextBlock Text="Theo dõi:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
                     <ItemsControl ItemsSource="{Binding SocialItems}">
                         <ItemsControl.ItemsPanel>
@@ -77,7 +77,7 @@
                     </ItemsControl>
                 </StackPanel>
 
-                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8,0,0,0">
                     <TextBlock Text="Liên hệ:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
                     <ItemsControl ItemsSource="{Binding ContactItems}">
                         <ItemsControl.ItemsPanel>
