@@ -8,10 +8,10 @@
             <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
 
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Assets/Styles/ThemeColors.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ThemeColor.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/BootstrapButtonStyles.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/LayoutStyles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/LayoutStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

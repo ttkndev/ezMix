@@ -20,22 +20,32 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top" MinHeight="56" Style="{StaticResource AppBarStyle}">
+        <Border DockPanel.Dock="Top" MinHeight="50" Style="{StaticResource AppBarStyle}">
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="18">ez</TextBlock>
                 <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="18" Margin="0,0,20,0">Mix</TextBlock>
 
                 <Button Content="🏠 Trang chủ" Command="{Binding HomeCommand}" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="👤 Liên hệ" Command="{Binding ContactCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="ℹ️ Giới thiệu" Command="{Binding ContactCommand}" Style="{StaticResource NavButtonStyle}"/>
             </WrapPanel>
         </Border>
 
-        <Border DockPanel.Dock="Bottom" MinHeight="56" Style="{StaticResource AppBarStyle}">
+        <Border DockPanel.Dock="Bottom" MinHeight="50" Style="{StaticResource AppBarStyle}">
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Copyright 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="14" Margin="5,0,8,0"/>
+                <!-- Icon bản quyền -->
+                <TextBlock Text="© 2026 - ttkndev"
+                   Style="{StaticResource AppBarTextStyle}"
+                   FontSize="14" Margin="5,0,8,0"/>
+
+                <!-- Social buttons -->
                 <Button Content="📘 Facebook" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="💬 Zalo" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="▶ Youtube" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="🎬 Youtube" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="🌐 Website" Style="{StaticResource NavButtonStyle}"/>
+
+                <!-- Thêm SĐT và Email -->
+                <Button Content="📞 0123-456-789" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="📧 ttkndev@example.com" Style="{StaticResource NavButtonStyle}"/>
             </WrapPanel>
         </Border>
 
