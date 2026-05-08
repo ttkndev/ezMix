@@ -36,7 +36,7 @@
                 <TextBlock TextWrapping="Wrap"
                            TextAlignment="Left"
                            Style="{StaticResource BodyTextStyle}"
-                           Foreground="Goldenrod"
+                           Foreground="{DynamicResource Brush.Brand.Accent}"
                            Text="⚠️ Lưu ý: Ở chức năng Chuẩn hóa, phần mềm nhận dạng các ký hiệu A. / B. / C. / D. là đáp án lựa chọn. Nếu nội dung câu hỏi có thêm các ký hiệu này, bạn cần rà soát và chỉnh lại theo cảnh báo để đảm bảo kết quả chính xác."/>
             </Border>
 
