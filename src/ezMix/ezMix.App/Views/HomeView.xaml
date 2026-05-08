@@ -200,6 +200,80 @@
                     </StackPanel>
                 </Border>
 
+
+                <!-- Card: Tự luận · Trả lời ngắn. -->
+                <Border Style="{StaticResource Card.Accent}"
+                        Margin="0,0,10,20">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                            <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
+                                <TextBlock Text="SHORT"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource Brush.Brand.Primary}"/>
+                            </Border>
+                            <TextBlock Text="Tự luận · Trả lời ngắn"
+                                       Style="{StaticResource Text.H3}"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
+                        <TextBlock Text="Câu 1: Nêu khái niệm của quá trình quang hợp?"
+                                   Style="{StaticResource Text.Body}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,8"/>
+                        <TextBlock Text="Đáp án: Quá trình cây xanh tổng hợp chất hữu cơ từ CO₂ và nước nhờ ánh sáng."
+                                   Style="{StaticResource Text.Body}"
+                                   TextWrapping="Wrap"
+                                   Margin="0,2"/>
+                        <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="Ghi đáp án sau tiền tố 'Đáp án:'"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Secondary}"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!-- Card: Điền khuyết. -->
+                <Border Style="{StaticResource Card.Accent}"
+                        Margin="10,0,0,20">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                            <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
+                                <TextBlock Text="FILL"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource Brush.Brand.Primary}"/>
+                            </Border>
+                            <TextBlock Text="Điền khuyết"
+                                       Style="{StaticResource Text.H3}"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
+                        <TextBlock Text="Câu 1: Thủ đô của Việt Nam là [____]."
+                                   Style="{StaticResource Text.Body}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,8"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="Đáp án: Hà Nội"
+                                       Style="{StaticResource Text.Body}"
+                                       FontWeight="SemiBold"
+                                       TextDecorations="Underline"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                            <TextBlock Text="  ← nội dung điền đúng"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Muted}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="Đặt phần cần điền trong [____]"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Secondary}"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
             </UniformGrid>
 
             <!-- [3] SECTION: Lưu ý quan trọng. -->

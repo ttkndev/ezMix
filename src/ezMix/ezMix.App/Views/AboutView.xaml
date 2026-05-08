@@ -9,62 +9,49 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <StackPanel Margin="40,28,40,40" MaxWidth="1000" HorizontalAlignment="Center">
-                <!-- Header section. -->
-                <StackPanel Margin="0,0,0,24">
-                    <TextBlock Text="{Binding Title}" Style="{StaticResource Text.H1}" Margin="0,0,0,8"/>
-                    <TextBlock Text="{Binding Summary}" Style="{StaticResource Text.Body.Secondary}" TextWrapping="Wrap"/>
-                </StackPanel>
-
-                <!-- Features card. -->
-                <Border Style="{StaticResource Card.Info}" Margin="0,0,0,20">
+                <Border Style="{StaticResource Card.Elevated}" Margin="0,0,0,24">
                     <StackPanel>
-                        <TextBlock Text="Dịch vụ cung cấp" Style="{StaticResource Text.H3}" Margin="0,0,0,14"/>
-                        <ItemsControl ItemsSource="{Binding Capabilities}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" Margin="0,4">
-                                        <TextBlock Text="✦" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,10,0"/>
-                                        <TextBlock Text="{Binding}" Style="{StaticResource Text.Body}" TextWrapping="Wrap"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        <TextBlock Text="Về ezMix" Style="{StaticResource Text.H1}" Margin="0,0,0,8"/>
+                        <TextBlock Style="{StaticResource Text.Body.Secondary}" TextWrapping="Wrap">
+                            ezMix là công cụ hỗ trợ giáo viên và đội ngũ học thuật chuẩn hóa ngân hàng câu hỏi, trộn đề nhanh,
+                            và đảm bảo tính nhất quán trước khi phát hành đề thi.
+                        </TextBlock>
                     </StackPanel>
                 </Border>
 
-                <!-- Important note card. -->
-                <Border Style="{StaticResource Card.Info}" BorderBrush="{DynamicResource Brush.Status.Warning}" BorderThickness="4,1,1,1" Margin="0,0,0,20">
+                <UniformGrid Columns="2" Margin="0,0,0,20">
+                    <Border Style="{StaticResource Card.Accent}" Margin="0,0,10,20">
+                        <StackPanel>
+                            <TextBlock Text="Trải nghiệm hiện đại" Style="{StaticResource Text.H3}" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
+                            <TextBlock Text="• Giao diện rõ ràng, dễ thao tác cho cả người mới." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Bố cục responsive, hiển thị ổn định trên nhiều độ phân giải." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Tập trung vào quy trình làm đề thi nhanh và chính xác." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource Card.Accent}" Margin="10,0,0,20">
+                        <StackPanel>
+                            <TextBlock Text="Nền tảng kỹ thuật" Style="{StaticResource Text.H3}" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
+                            <TextBlock Text="• Xây dựng theo mô hình MVVM dễ mở rộng." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Hệ thống Design Tokens giúp đồng bộ màu sắc và typography." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="• Dễ bảo trì, thuận tiện phát triển thêm module mới." Style="{StaticResource Text.Body}" Margin="0,2" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+
+                <Border Style="{StaticResource Card.Info}" BorderBrush="{DynamicResource Brush.Brand.Primary}" BorderThickness="4,1,1,1" Margin="0,0,0,20">
                     <TextBlock TextWrapping="Wrap" Style="{StaticResource Text.Body.Secondary}">
-                        <Run Text="⚠ Lưu ý: " FontWeight="SemiBold" Foreground="{DynamicResource Brush.Status.Warning}"/>
-                        <Run Text="Ở chức năng Chuẩn hóa, phần mềm nhận dạng ký hiệu A. / B. / C. / D. là đáp án lựa chọn."/>
+                        <Run Text="Tầm nhìn: " FontWeight="SemiBold" Foreground="{DynamicResource Brush.Brand.Primary}"/>
+                        <Run Text="biến quy trình tạo đề thi trở nên nhẹ nhàng, tin cậy và nhất quán cho mọi đơn vị giáo dục."/>
                     </TextBlock>
                 </Border>
 
-                <!-- Contact buttons section. -->
-                <Border Style="{StaticResource Card.Compact}" Margin="0,0,0,20">
+                <Border Style="{StaticResource Card.Compact}">
                     <StackPanel>
-                        <TextBlock Text="Thông tin liên hệ" Style="{StaticResource Text.H3}" Margin="0,0,0,14"/>
-                        <ItemsControl ItemsSource="{Binding ContactItems}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding Label}" Style="{StaticResource Button.Ghost}" Margin="0,0,10,10" Padding="14,8"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        <TextBlock Text="Cảm ơn bạn đã sử dụng ezMix" Style="{StaticResource Text.H3}" Margin="0,0,0,10"/>
+                        <TextBlock Text="Chúng tôi luôn lắng nghe góp ý để sản phẩm ngày càng trực quan, nhanh hơn và hữu ích hơn trong công việc hằng ngày."
+                                   Style="{StaticResource Text.Body.Secondary}" TextWrapping="Wrap"/>
                     </StackPanel>
-                </Border>
-
-                <!-- Footer message card. -->
-                <Border Style="{StaticResource Card.Accent}">
-                    <TextBlock TextWrapping="Wrap" Style="{StaticResource Text.Body}">
-                        <Run Text="💙 "/>
-                        <Run Text="Nếu có góp ý, vui lòng liên hệ nhóm hỗ trợ để ezMix hoàn thiện hơn."/>
-                    </TextBlock>
                 </Border>
             </StackPanel>
         </ScrollViewer>
