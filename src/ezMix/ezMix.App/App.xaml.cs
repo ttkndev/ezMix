@@ -18,15 +18,17 @@ namespace ezMix.App
         public static void ApplyTheme(bool isDarkMode)
         {
             var existingTheme = Current.Resources.MergedDictionaries
-                .FirstOrDefault(d => d.Source != null && (d.Source.OriginalString.Contains("LightTheme.xaml") || d.Source.OriginalString.Contains("DarkTheme.xaml")));
+                .FirstOrDefault(d => d.Source != null && (d.Source.OriginalString.Contains("ThemeLight.xaml") || d.Source.OriginalString.Contains("ThemeDark.xaml")));
 
             if (existingTheme != null)
             {
                 Current.Resources.MergedDictionaries.Remove(existingTheme);
             }
 
-            var themePath = isDarkMode ? "Assets/Styles/DarkTheme.xaml" : "Assets/Styles/LightTheme.xaml";
-            Current.Resources.MergedDictionaries.Insert(3, new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) });
+            var themePath = isDarkMode ? "Assets/Styles/ThemeDark.xaml" : "Assets/Styles/ThemeLight.xaml";
+            var mergedDictionaries = Current.Resources.MergedDictionaries;
+            var insertIndex = Math.Min(3, mergedDictionaries.Count);
+            mergedDictionaries.Insert(insertIndex, new ResourceDictionary { Source = new Uri(themePath, UriKind.Relative) });
         }
 
         protected override void OnStartup(StartupEventArgs e)
