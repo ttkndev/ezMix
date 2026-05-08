@@ -16,7 +16,7 @@
                 </StackPanel>
 
                 <!-- Features card. -->
-                <Border Style="{StaticResource Card.Default}" Margin="0,0,0,20">
+                <Border Style="{StaticResource Card.Info}" Margin="0,0,0,20">
                     <StackPanel>
                         <TextBlock Text="Dịch vụ cung cấp" Style="{StaticResource Text.H3}" Margin="0,0,0,14"/>
                         <ItemsControl ItemsSource="{Binding Capabilities}">
@@ -41,7 +41,7 @@
                 </Border>
 
                 <!-- Contact buttons section. -->
-                <Border Style="{StaticResource Card.Default}" Margin="0,0,0,20">
+                <Border Style="{StaticResource Card.Compact}" Margin="0,0,0,20">
                     <StackPanel>
                         <TextBlock Text="Thông tin liên hệ" Style="{StaticResource Text.H3}" Margin="0,0,0,14"/>
                         <ItemsControl ItemsSource="{Binding ContactItems}">

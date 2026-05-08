@@ -115,10 +115,10 @@
                         <TextBlock>
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock" BasedOn="{StaticResource Text.Base}">
-                                    <Setter Property="Text" Value="☀ Sáng"/>
+                                    <Setter Property="Text" Value="🌙 Tối"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsDarkMode}" Value="True">
-                                            <Setter Property="Text" Value="🌙 Tối"/>
+                                            <Setter Property="Text" Value="☀ Sáng"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>

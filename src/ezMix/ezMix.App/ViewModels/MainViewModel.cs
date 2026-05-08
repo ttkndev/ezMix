@@ -14,9 +14,9 @@ namespace ezMix.App.ViewModels
         private bool _isBusy = false;
         private string _overlayMessage = "Đang tải...";
         private string _subTitle = string.Empty;
-        private bool _isHomeActive;
+        private bool _isHomeActive = true;
         private bool _isAboutActive;
-        private bool _isDarkMode;
+        private bool _isDarkMode = true;
 
         public ObservableCollection<FooterLink> SocialItems { get; }
         public ObservableCollection<FooterLink> ContactItems { get; }

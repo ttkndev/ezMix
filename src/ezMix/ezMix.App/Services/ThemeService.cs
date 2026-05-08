@@ -23,8 +23,8 @@ namespace ezMix.App.Services
     public class ThemeService
     {
         // ══ Singleton (hoặc dùng DI) ══
-        private static ThemeService? _instance;
-        public static ThemeService Instance => _instance ??= new ThemeService();
+        private static ThemeService _instance;
+        public static ThemeService Instance => _instance ?? new ThemeService();
 
         // ══ Đường dẫn tới 2 file theme ══
         private const string DarkThemeUri  = "Assets/Styles/ThemeDark.xaml";
@@ -34,7 +34,7 @@ namespace ezMix.App.Services
         public bool IsDarkMode { get; private set; } = true;
 
         // ══ Sự kiện thông báo khi đổi theme ══
-        public event Action<bool>? ThemeChanged;
+        public event Action<bool> ThemeChanged;
 
         private ThemeService() { }
 
