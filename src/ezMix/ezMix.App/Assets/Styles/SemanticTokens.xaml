@@ -4,5 +4,11 @@
     <SolidColorBrush x:Key="Brush.Text.Muted" Color="{StaticResource Color.Text.Muted}"/>
     <SolidColorBrush x:Key="Brush.Border.Subtle" Color="{StaticResource Color.Border.Subtle}"/>
     <SolidColorBrush x:Key="Brush.Surface.Card" Color="{StaticResource Color.Surface.Card}"/>
+    <SolidColorBrush x:Key="Brush.Surface.Info" Color="{StaticResource Color.Surface.Info}"/>
+    <SolidColorBrush x:Key="Brush.Surface.Warning" Color="{StaticResource Color.Surface.Warning}"/>
+    <SolidColorBrush x:Key="Brush.Surface.Danger" Color="{StaticResource Color.Surface.Danger}"/>
+    <SolidColorBrush x:Key="Brush.Border.Info" Color="{StaticResource Color.Border.Info}"/>
+    <SolidColorBrush x:Key="Brush.Border.Warning" Color="{StaticResource Color.Border.Warning}"/>
+    <SolidColorBrush x:Key="Brush.Border.Danger" Color="{StaticResource Color.Border.Danger}"/>
     <SolidColorBrush x:Key="Brush.Overlay" Color="{StaticResource Color.Overlay}"/>
 </ResourceDictionary>

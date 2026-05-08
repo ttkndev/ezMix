@@ -1,4 +1,5 @@
 ﻿<Window x:Class="ezMix.App.MainWindow"
+        x:Name="RootWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -34,10 +35,11 @@
                     <TextBlock Style="{StaticResource AppBarTextStyle}" FontSize="20" Text=" - Trộn đề"/>
                 </StackPanel>
 
-                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <WrapPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Content="Trang chủ" Command="{Binding HomeCommand}" Tag="{Binding IsHomeActive}" Style="{StaticResource NavButtonStyle}"/>
+                    <Button Content="Trộn đề" IsEnabled="False" ToolTip="Sắp ra mắt" Style="{StaticResource NavButtonStyle}"/>
                     <Button Content="Giới thiệu" Command="{Binding AboutCommand}" Tag="{Binding IsAboutActive}" Style="{StaticResource NavButtonStyle}"/>
-                </StackPanel>
+                </WrapPanel>
 
                 <TextBlock Grid.Column="2"
                            Text="{Binding SubTitle}"
@@ -51,43 +53,45 @@
         </Border>
 
         <Border DockPanel.Dock="Bottom" Style="{StaticResource AppBarStyle}" Padding="20,10">
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" ItemHeight="Auto">
-                <TextBlock Text="© 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="13" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="© 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="13" VerticalAlignment="Center" Margin="0,0,0,8" HorizontalAlignment="Center"/>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,24,0" MaxWidth="420">
-                    <TextBlock Text="Theo dõi:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
-                    <ItemsControl ItemsSource="{Binding SocialItems}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Label}"
-                                        Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                        CommandParameter="{Binding ActionValue}"
-                                        Style="{StaticResource NavButtonStyle}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </StackPanel>
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" ItemHeight="Auto" MaxWidth="920">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,24,8" MaxWidth="420">
+                        <TextBlock Text="Theo dõi:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                        <ItemsControl ItemsSource="{Binding SocialItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Label}"
+                                            Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding ActionValue}"
+                                            Style="{StaticResource NavButtonStyle}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" MaxWidth="420">
-                    <TextBlock Text="Liên hệ:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
-                    <ItemsControl ItemsSource="{Binding ContactItems}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Label}"
-                                        Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                        CommandParameter="{Binding ActionValue}"
-                                        Style="{StaticResource NavButtonStyle}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </StackPanel>
-            </WrapPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,8" MaxWidth="420">
+                        <TextBlock Text="Liên hệ:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                        <ItemsControl ItemsSource="{Binding ContactItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Label}"
+                                            Command="{Binding DataContext.OpenFooterActionCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding ActionValue}"
+                                            Style="{StaticResource NavButtonStyle}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
         </Border>
 
         <Grid>
