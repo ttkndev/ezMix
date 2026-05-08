@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:ezMix.App.Views"
         xmlns:viewmodels="clr-namespace:ezMix.App.ViewModels"
+        xmlns:core="clr-namespace:ezMix.App.Assets.Core"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="ezMix" Height="520" Width="900" MinHeight="420" MinWidth="620">
@@ -33,19 +34,19 @@
         <Border DockPanel.Dock="Bottom" MinHeight="50" Style="{StaticResource AppBarStyle}">
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <!-- Icon bản quyền -->
-                <TextBlock Text="© 2026 - ttkndev"
+                <TextBlock Text="{x:Static core:AppContactInfo.Copyright}"
                    Style="{StaticResource AppBarTextStyle}"
                    FontSize="14" Margin="5,0,8,0"/>
 
                 <!-- Social buttons -->
-                <Button Content="📘 Facebook" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="💬 Zalo" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="🎬 Youtube" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="🌐 Website" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Facebook}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Zalo}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Youtube}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Website}" Style="{StaticResource NavButtonStyle}"/>
 
                 <!-- Thêm SĐT và Email -->
-                <Button Content="📞 0123-456-789" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="📧 ttkndev@example.com" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Phone}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="{x:Static core:AppContactInfo.Email}" Style="{StaticResource NavButtonStyle}"/>
             </WrapPanel>
         </Border>
 
