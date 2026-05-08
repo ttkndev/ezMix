@@ -33,9 +33,9 @@
         <Border DockPanel.Dock="Bottom" MinHeight="56" Style="{StaticResource AppBarStyle}">
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Copyright 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="14" Margin="5,0,8,0"/>
-                <Button Content="Facebook" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="Zalo" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="Youtube" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="📘 Facebook" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="💬 Zalo" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="▶ Youtube" Style="{StaticResource NavButtonStyle}"/>
             </WrapPanel>
         </Border>
 

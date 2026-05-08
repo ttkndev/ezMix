@@ -52,6 +52,16 @@
         <Setter Property="Background" Value="{DynamicResource Brush.Bs.Danger}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Danger.Border}"/>
     </Style>
+    <Style x:Key="BtnWarning" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Warning}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Bs.Warning.Text}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Warning.Border}"/>
+    </Style>
+    <Style x:Key="BtnInfo" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource Brush.Bs.Info}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Bs.Info.Text}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Info.Border}"/>
+    </Style>
     <Style x:Key="BtnDark" TargetType="Button" BasedOn="{StaticResource BootstrapButtonBase}">
         <Setter Property="Background" Value="{DynamicResource Brush.Bs.Dark}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Dark.Border}"/>

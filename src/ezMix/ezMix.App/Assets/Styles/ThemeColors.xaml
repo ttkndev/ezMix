@@ -20,6 +20,12 @@
     <Color x:Key="Color.Bs.Success.Border">#157347</Color>
     <Color x:Key="Color.Bs.Danger">#DC3545</Color>
     <Color x:Key="Color.Bs.Danger.Border">#B02A37</Color>
+    <Color x:Key="Color.Bs.Warning">#FFC107</Color>
+    <Color x:Key="Color.Bs.Warning.Border">#FFCA2C</Color>
+    <Color x:Key="Color.Bs.Warning.Text">#000000</Color>
+    <Color x:Key="Color.Bs.Info">#0DCAF0</Color>
+    <Color x:Key="Color.Bs.Info.Border">#31D2F2</Color>
+    <Color x:Key="Color.Bs.Info.Text">#000000</Color>
     <Color x:Key="Color.Bs.Dark">#212529</Color>
     <Color x:Key="Color.Bs.Dark.Border">#1A1E21</Color>
     <Color x:Key="Color.Bs.Light">#F8F9FA</Color>
@@ -41,6 +47,12 @@
     <SolidColorBrush x:Key="Brush.Bs.Success.Border" Color="{StaticResource Color.Bs.Success.Border}"/>
     <SolidColorBrush x:Key="Brush.Bs.Danger" Color="{StaticResource Color.Bs.Danger}"/>
     <SolidColorBrush x:Key="Brush.Bs.Danger.Border" Color="{StaticResource Color.Bs.Danger.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Warning" Color="{StaticResource Color.Bs.Warning}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Warning.Border" Color="{StaticResource Color.Bs.Warning.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Warning.Text" Color="{StaticResource Color.Bs.Warning.Text}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Info" Color="{StaticResource Color.Bs.Info}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Info.Border" Color="{StaticResource Color.Bs.Info.Border}"/>
+    <SolidColorBrush x:Key="Brush.Bs.Info.Text" Color="{StaticResource Color.Bs.Info.Text}"/>
     <SolidColorBrush x:Key="Brush.Bs.Dark" Color="{StaticResource Color.Bs.Dark}"/>
     <SolidColorBrush x:Key="Brush.Bs.Dark.Border" Color="{StaticResource Color.Bs.Dark.Border}"/>
     <SolidColorBrush x:Key="Brush.Bs.Light" Color="{StaticResource Color.Bs.Light}"/>
