@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid Background="{DynamicResource Brush.Surface.Primary}">
+    <!--<Grid Background="{DynamicResource Brush.Surface.Primary}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Style="{StaticResource PageContentGridStyle}" Margin="40,20">
                 <Grid.RowDefinitions>
@@ -126,5 +126,5 @@
                 </Border>
             </Grid>
         </ScrollViewer>
-    </Grid>
+    </Grid>-->
 </UserControl>

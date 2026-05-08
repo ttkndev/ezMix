@@ -1,57 +1,279 @@
-﻿<UserControl x:Class="ezMix.App.Views.HomeView"
+<UserControl x:Class="ezMix.App.Views.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             mc:Ignorable="d" d:DesignHeight="960" d:DesignWidth="1366">
-    <Grid Background="{DynamicResource Brush.Surface.Primary}">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="40,20" MaxWidth="1200" HorizontalAlignment="Center">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="960" d:DesignWidth="1366"
+             Background="{DynamicResource Brush.Background.App}">
 
-                <Border Style="{StaticResource CardPanelStyle}" Margin="0,0,0,30">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Width="80" Height="80" Background="{DynamicResource Brush.Brand.Accent}" CornerRadius="20">
-                            <TextBlock Text="🧩" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <StackPanel Grid.Column="1" Margin="24,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="Phần mềm trộn đề ezMix" Style="{StaticResource PageTitleTextStyle}"/>
-                            <TextBlock Style="{StaticResource BodyTextStyle}" Foreground="{DynamicResource Brush.Text.Muted}" Margin="0,8,0,0">
-                                <Run Text="Chuẩn hóa và trộn đề thi tự động."/>
-                                <Run Text="Chính xác - Bảo mật - Miễn phí." FontWeight="SemiBold" Foreground="{DynamicResource Brush.Brand.Accent}"/>
-                            </TextBlock>
+    <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║                    HOME VIEW                            ║
+    ║  Layout (top → bottom):                                 ║
+    ║    [1] Hero card   — logo + tên app + mô tả            ║
+    ║    [2] Section     — Hướng dẫn định dạng câu hỏi       ║
+    ║         ├── Card: Trắc nghiệm Nhiều lựa chọn           ║
+    ║         ├── Card: Trắc nghiệm Đúng–Sai                 ║
+    ║         ├── Card: Tự luận (nếu có sau)                 ║
+    ║         └── ...                                        ║
+    ║    [3] Section     — Lưu ý / ghi chú quan trọng        ║
+    ╚══════════════════════════════════════════════════════════╝
+    -->
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Margin="40,28,40,40"
+                    MaxWidth="1100"
+                    HorizontalAlignment="Center">
+
+            <!-- ══════════════════════════════════════════
+                 [1] HERO CARD — Giới thiệu ứng dụng
+            ══════════════════════════════════════════ -->
+            <Border Style="{StaticResource Card.Elevated}" Margin="0,0,0,32">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Icon app -->
+                    <Border Width="72" Height="72"
+                            CornerRadius="18"
+                            VerticalAlignment="Center">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#5B6CF9" Offset="0"/>
+                                <GradientStop Color="#7C8DFF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <TextBlock Text="🧩"
+                                   FontSize="36"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Tên app + mô tả -->
+                    <StackPanel Grid.Column="1"
+                                Margin="24,0,0,0"
+                                VerticalAlignment="Center">
+                        <!-- Tên: "ez" + "Mix" accent -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <TextBlock Text="ez"
+                                       Style="{StaticResource Text.H1}"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="Mix"
+                                       Style="{StaticResource Text.H1}"
+                                       FontWeight="Bold"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                            <TextBlock Text=" — Phần mềm trộn đề thi"
+                                       Style="{StaticResource Text.H1}"
+                                       Foreground="{DynamicResource Brush.Text.Secondary}"/>
                         </StackPanel>
-                    </Grid>
+
+                        <!-- Mô tả ngắn -->
+                        <TextBlock Style="{StaticResource Text.Body.Secondary}"
+                                   TextWrapping="Wrap">
+                            <Run Text="Chuẩn hóa và trộn đề thi tự động. "/>
+                            <Run Text="Chính xác · Bảo mật · Miễn phí."
+                                 FontWeight="SemiBold"
+                                 Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- ══════════════════════════════════════════
+                 [2] SECTION: Hướng dẫn định dạng câu hỏi
+            ══════════════════════════════════════════ -->
+
+            <!-- Tiêu đề section -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,16">
+                <!-- Thanh accent dọc bên trái -->
+                <Border Width="4" Height="22"
+                        CornerRadius="2"
+                        Background="{DynamicResource Brush.Brand.Primary}"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"/>
+                <TextBlock Text="Hướng dẫn định dạng câu hỏi"
+                           Style="{StaticResource Text.H2}"/>
+            </StackPanel>
+
+            <!-- Grid 2 cột: các loại câu hỏi -->
+            <UniformGrid Columns="2" Margin="0,0,0,32">
+
+                <!-- ── Card: Trắc nghiệm Nhiều lựa chọn ── -->
+                <Border Style="{StaticResource Card.Accent}"
+                        Margin="0,0,10,20">
+                    <StackPanel>
+                        <!-- Tiêu đề card -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                            <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
+                                <TextBlock Text="A B C D"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource Brush.Brand.Primary}"/>
+                            </Border>
+                            <TextBlock Text="Trắc nghiệm · Nhiều lựa chọn"
+                                       Style="{StaticResource Text.H3}"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                        </StackPanel>
+
+                        <!-- Đường phân cách -->
+                        <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
+
+                        <!-- Ví dụ định dạng -->
+                        <TextBlock Text="Câu 1: Nội dung câu hỏi?"
+                                   Style="{StaticResource Text.Body}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <TextBlock Text="A. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
+                        <TextBlock Text="B. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
+                        <!-- Đáp án đúng: nổi bật bằng màu accent + underline -->
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="C. Nội dung đáp án."
+                                       Style="{StaticResource Text.Body}"
+                                       FontWeight="SemiBold"
+                                       TextDecorations="Underline"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                            <TextBlock Text="  ← đáp án đúng"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Muted}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock Text="D. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
+
+                        <!-- Ghi chú nhỏ -->
+                        <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="Gạch chân đáp án đúng"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Secondary}"/>
+                        </Border>
+                    </StackPanel>
                 </Border>
 
-                <TextBlock Text="Hướng dẫn định dạng câu hỏi" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,20"/>
-
-                <UniformGrid Columns="2">
-                    <Border Style="{StaticResource CardPanelStyle}" Margin="0,0,10,20" BorderBrush="{DynamicResource Brush.Brand.Accent}" BorderThickness="4,1,1,1">
-                        <StackPanel>
-                            <TextBlock Text="✅ Trắc nghiệm Nhiều lựa chọn" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
-                            <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,4"/>
-                            <TextBlock Text="A. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="B. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="C. Nội dung đáp án." Style="{StaticResource BodyTextStyle}" TextDecorations="Underline" FontWeight="SemiBold"/>
-                            <TextBlock Text="D. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
+                <!-- ── Card: Trắc nghiệm Đúng–Sai ── -->
+                <Border Style="{StaticResource Card.Accent}"
+                        Margin="10,0,0,20">
+                    <StackPanel>
+                        <!-- Tiêu đề card -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                            <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
+                                <TextBlock Text="Đ / S"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource Brush.Brand.Primary}"/>
+                            </Border>
+                            <TextBlock Text="Trắc nghiệm · Đúng – Sai"
+                                       Style="{StaticResource Text.H3}"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
                         </StackPanel>
-                    </Border>
 
-                    <Border Style="{StaticResource CardPanelStyle}" Margin="10,0,0,20" BorderBrush="{DynamicResource Brush.Brand.Accent}" BorderThickness="4,1,1,1">
-                        <StackPanel>
-                            <TextBlock Text="✔️ Trắc nghiệm Đúng–Sai" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
-                            <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,4"/>
-                            <TextBlock Text="a) Nội dung phát biểu" TextDecorations="Underline" Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="b) Nội dung phát biểu" Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="c) Nội dung phát biểu" TextDecorations="Underline" Style="{StaticResource BodyTextStyle}"/>
-                            <TextBlock Text="d) Nội dung phát biểu" Style="{StaticResource BodyTextStyle}"/>
+                        <!-- Đường phân cách -->
+                        <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
+
+                        <!-- Ví dụ định dạng -->
+                        <TextBlock Text="Câu 1: Nội dung câu hỏi?"
+                                   Style="{StaticResource Text.Body}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,6"/>
+                        <!-- Phát biểu đúng: underline + accent -->
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="a) Nội dung phát biểu"
+                                       Style="{StaticResource Text.Body}"
+                                       FontWeight="SemiBold"
+                                       TextDecorations="Underline"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                            <TextBlock Text="  ← đúng"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Muted}"
+                                       VerticalAlignment="Center"/>
                         </StackPanel>
-                    </Border>
+                        <TextBlock Text="b) Nội dung phát biểu" Style="{StaticResource Text.Body}" Margin="0,2"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <TextBlock Text="c) Nội dung phát biểu"
+                                       Style="{StaticResource Text.Body}"
+                                       FontWeight="SemiBold"
+                                       TextDecorations="Underline"
+                                       Foreground="{DynamicResource Brush.Brand.Accent}"/>
+                            <TextBlock Text="  ← đúng"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Muted}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock Text="d) Nội dung phát biểu" Style="{StaticResource Text.Body}" Margin="0,2"/>
 
-                </UniformGrid>
+                        <!-- Ghi chú nhỏ -->
+                        <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
+                                HorizontalAlignment="Left">
+                            <TextBlock Text="Gạch chân phát biểu ĐÚNG"
+                                       Style="{StaticResource Text.Caption}"
+                                       Foreground="{DynamicResource Brush.Text.Secondary}"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+
+            <!-- ══════════════════════════════════════════
+                 [3] SECTION: Lưu ý quan trọng
+            ══════════════════════════════════════════ -->
+
+            <!-- Tiêu đề section -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,16">
+                <Border Width="4" Height="22"
+                        CornerRadius="2"
+                        Background="{DynamicResource Brush.Status.Warning}"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center"/>
+                <TextBlock Text="Lưu ý quan trọng"
+                           Style="{StaticResource Text.H2}"/>
             </StackPanel>
-        </ScrollViewer>
-    </Grid>
+
+            <!-- Card lưu ý: dùng Card.Info với viền trái màu warning -->
+            <Border Margin="0,0,0,16"
+                    Background="{DynamicResource Brush.Background.Card}"
+                    BorderBrush="{DynamicResource Brush.Status.Warning}"
+                    BorderThickness="4,1,1,1"
+                    CornerRadius="0,12,12,0"
+                    Padding="{StaticResource Padding.Card}">
+                <StackPanel>
+                    <TextBlock Text="⚠ File Word (.docx) đầu vào"
+                               Style="{StaticResource Text.H3}"
+                               Foreground="{DynamicResource Brush.Status.Warning}"
+                               Margin="0,0,0,10"/>
+                    <TextBlock TextWrapping="Wrap"
+                               Style="{StaticResource Text.Body.Secondary}">
+                        <Run Text="• "/>
+                        <Run Text="Mỗi câu hỏi phải bắt đầu bằng"/>
+                        <Run Text=" &quot;Câu X:&quot; " FontWeight="SemiBold"
+                             Foreground="{DynamicResource Brush.Text.Primary}"/>
+                        <Run Text="(X là số thứ tự)."/>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap"
+                               Style="{StaticResource Text.Body.Secondary}"
+                               Margin="0,4,0,0">
+                        <Run Text="• "/>
+                        <Run Text="Đáp án đúng được"/>
+                        <Run Text=" gạch chân (Underline) " FontWeight="SemiBold"
+                             Foreground="{DynamicResource Brush.Text.Primary}"/>
+                        <Run Text="trong file gốc."/>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap"
+                               Style="{StaticResource Text.Body.Secondary}"
+                               Margin="0,4,0,0">
+                        <Run Text="• "/>
+                        <Run Text="Không chỉnh sửa file trong khi phần mềm đang xử lý."/>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+
 </UserControl>

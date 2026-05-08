@@ -1,0 +1,82 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║                   THEME: LIGHT MODE                     ║
+    ║  File: Assets/Styles/ThemeLight.xaml                    ║
+    ║  Mô tả: Override toàn bộ brush theo nền sáng (light).   ║
+    ║  Cách dùng: Được load động bởi ThemeService khi user    ║
+    ║             chọn Light Mode.                            ║
+    ╚══════════════════════════════════════════════════════════╝
+
+    CẤU TRÚC NỀN SÁNG (theo độ sâu - elevation):
+    Layer 0 (App Background):  #F0F2FA  ← nền toàn app
+    Layer 1 (Surface):         #FFFFFF  ← panel, sidebar
+    Layer 2 (Card):            #FFFFFF  ← thẻ nội dung
+    Layer 3 (Elevated Card):   #F7F8FF  ← card nổi, dropdown
+    Layer 4 (AppBar):          #FFFFFF  ← thanh trên/dưới
+    -->
+
+    <!-- Merge bảng màu gốc và màu thương hiệu dùng chung -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- ══ NỀN (Background) ══ -->
+    <!-- Nền toàn ứng dụng -->
+    <SolidColorBrush x:Key="Brush.Background.App"       Color="#F0F2FA"/>
+    <!-- Nền panel, sidebar, container -->
+    <SolidColorBrush x:Key="Brush.Background.Surface"   Color="#FFFFFF"/>
+    <!-- Nền card thông thường -->
+    <SolidColorBrush x:Key="Brush.Background.Card"      Color="#FFFFFF"/>
+    <!-- Nền card nổi, dropdown, tooltip -->
+    <SolidColorBrush x:Key="Brush.Background.Elevated"  Color="#F7F8FF"/>
+    <!-- Nền thanh AppBar (header/footer) -->
+    <SolidColorBrush x:Key="Brush.Background.AppBar"    Color="#FFFFFF"/>
+    <!-- Nền input (textbox, combobox) -->
+    <SolidColorBrush x:Key="Brush.Background.Input"     Color="#F8F9FF"/>
+    <!-- Nền hover nhẹ cho item danh sách -->
+    <SolidColorBrush x:Key="Brush.Background.Hover"     Color="#EEF0FF"/>
+    <!-- Nền khi được chọn (selected) -->
+    <SolidColorBrush x:Key="Brush.Background.Selected"  Color="#DDE1FF"/>
+
+    <!-- ══ CHỮ (Text) ══ -->
+    <!-- Chữ chính, nội dung quan trọng -->
+    <SolidColorBrush x:Key="Brush.Text.Primary"         Color="#1A1D2E"/>
+    <!-- Chữ phụ, nhãn thứ cấp -->
+    <SolidColorBrush x:Key="Brush.Text.Secondary"       Color="#4A5075"/>
+    <!-- Chữ mờ, placeholder, hint -->
+    <SolidColorBrush x:Key="Brush.Text.Muted"           Color="#8B93B8"/>
+    <!-- Chữ bị vô hiệu hóa (disabled) -->
+    <SolidColorBrush x:Key="Brush.Text.Disabled"        Color="#C5CAE0"/>
+    <!-- Chữ trên nền màu thương hiệu (primary button, appbar accent) -->
+    <SolidColorBrush x:Key="Brush.Text.OnPrimary"       Color="#FFFFFF"/>
+    <!-- Chữ link hoặc nổi bật nhẹ -->
+    <SolidColorBrush x:Key="Brush.Text.Link"            Color="#5B6CF9"/>
+
+    <!-- ══ VIỀN (Border) ══ -->
+    <!-- Viền mặc định (card, input lúc bình thường) -->
+    <SolidColorBrush x:Key="Brush.Border.Default"       Color="#DDE1F5"/>
+    <!-- Viền khi focus (input đang nhập) -->
+    <SolidColorBrush x:Key="Brush.Border.Focus"         Color="#5B6CF9"/>
+    <!-- Viền khi lỗi validation -->
+    <SolidColorBrush x:Key="Brush.Border.Error"         Color="#EF4444"/>
+    <!-- Viền subtle, phân cách section -->
+    <SolidColorBrush x:Key="Brush.Border.Subtle"        Color="#EAEDF8"/>
+
+    <!-- ══ LỚP PHỦ (Overlay) ══ -->
+    <!-- Nền mờ khi hiện loading spinner hoặc dialog -->
+    <SolidColorBrush x:Key="Brush.Overlay"              Color="#E8EAFF" Opacity="0.7"/>
+
+    <!-- ══ BÓNG ĐỔ (Shadow - dùng với Effect) ══ -->
+    <!-- Màu bóng đổ cho card/panel -->
+    <Color x:Key="Color.Shadow">#8B93C0</Color>
+
+    <!-- ══ SCROLLBAR ══ -->
+    <SolidColorBrush x:Key="Brush.ScrollBar.Track"      Color="#F0F2FA"/>
+    <SolidColorBrush x:Key="Brush.ScrollBar.Thumb"      Color="#C5CAE0"/>
+    <SolidColorBrush x:Key="Brush.ScrollBar.ThumbHover" Color="#9BA3C8"/>
+
+</ResourceDictionary>

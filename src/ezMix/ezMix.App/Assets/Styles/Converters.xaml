@@ -1,0 +1,54 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║              CONVERTERS & UTILITY RESOURCES             ║
+    ║  File: Assets/Styles/Converters.xaml                    ║
+    ║  Mô tả: Khai báo converter dùng trong toàn app.         ║
+    ╚══════════════════════════════════════════════════════════╝
+
+    LƯU Ý:
+    - Converter phải được implement trong code-behind (C#)
+    - File này chỉ khai báo instance để dùng trong XAML
+    - Thêm namespace của project vào nếu cần:
+      xmlns:converters="clr-namespace:ezMix.App.Converters"
+
+    DANH SÁCH CONVERTER:
+    - BoolToVisibility      → bool → Visibility (True=Visible)
+    - InverseBoolToVis      → bool → Visibility (True=Collapsed)
+    - NullToVisibility      → null → Visibility (null=Collapsed)
+    - StringToVisibility    → string rỗng → Collapsed
+    - BoolToInverse         → bool → !bool
+    - EnumToBoolean         → dùng cho RadioButton binding
+    -->
+
+    <!--
+    CÁCH DÙNG TRONG XAML:
+    Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}"
+    -->
+
+    <!-- BooleanToVisibilityConverter có sẵn trong WPF -->
+    <BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+
+    <!--
+    CÁC CONVERTER BÊN DƯỚI CẦN TẠO CLASS TRONG C#.
+    Uncomment sau khi tạo class tương ứng.
+
+    Bước 1: Tạo folder Converters/ trong project
+    Bước 2: Tạo class implement IValueConverter
+    Bước 3: Thêm namespace và uncomment dòng tương ứng
+
+    xmlns:converters="clr-namespace:ezMix.App.Converters"
+    -->
+
+    <!--
+    <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibility"/>
+    <converters:NullToVisibilityConverter        x:Key="NullToVisibility"/>
+    <converters:StringToVisibilityConverter      x:Key="StringToVisibility"/>
+    <converters:InverseBoolConverter             x:Key="BoolToInverse"/>
+    <converters:EnumToBooleanConverter           x:Key="EnumToBoolean"/>
+    -->
+
+</ResourceDictionary>

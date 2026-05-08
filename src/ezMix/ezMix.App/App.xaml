@@ -1,31 +1,83 @@
-﻿<Application x:Class="ezMix.App.App"
+<Application x:Class="ezMix.App.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ezMix.App"
-             xmlns:conv="clr-namespace:ezMix.App.Assets.Converters">
+             xmlns:local="clr-namespace:ezMix.App">
+
+    <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║                      APP.XAML                           ║
+    ║  Thứ tự merge QUAN TRỌNG — phải đúng từ trên xuống:    ║
+    ║                                                         ║
+    ║  [Converter]  BoolToVisibilityConverter (inline)        ║
+    ║  [1] Colors.xaml        → Raw color palette             ║
+    ║  [2] ThemeDark/Light    → Brush theo theme hiện tại     ║
+    ║  [3] Typography.xaml    → Style chữ viết                ║
+    ║  [4] Controls.xaml      → TextBox, CheckBox, v.v.       ║
+    ║  [5] Buttons.xaml       → Tất cả variant nút bấm       ║
+    ║  [6] Layout.xaml        → Card, Panel, AppBar, Badge    ║
+    ║                                                         ║
+    ║  [Global]  Implicit style (TextBlock, Window) — cuối   ║
+    ╚══════════════════════════════════════════════════════════╝
+    -->
+
     <Application.Resources>
         <ResourceDictionary>
-            <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
-            
-            <Style TargetType="TextBlock">
-                <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
-                <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
-                <Setter Property="FontFamily" Value="Segoe UI"/>
-            </Style>
-
-            <Style TargetType="Control">
-                <Setter Property="FontFamily" Value="Segoe UI"/>
-            </Style>
-
+            <!-- ══════════════════════════════════════════
+                 MERGED RESOURCE DICTIONARIES
+                 File load SAU override key trùng của file trước.
+                 → Colors phải đứng trước Theme
+                 → Theme phải đứng trước Typography/Controls/...
+            ══════════════════════════════════════════ -->
             <ResourceDictionary.MergedDictionaries>
+
+                <!-- [1] Màu gốc & brush thương hiệu (không phụ thuộc theme) -->
                 <ResourceDictionary Source="Assets/Styles/Colors.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/Brushes.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/SemanticTokens.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/LightTheme.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/ButtonStyle.xaml"/>
-                <ResourceDictionary Source="Assets/Styles/LayoutStyle.xaml"/>
+
+                <!--
+                    [2] THEME — chỉ load MỘT trong hai.
+                    ThemeService.cs swap runtime khi user bấm đổi theme.
+                    Mặc định: Dark Mode.
+                    Debug Light: comment dòng Dark, bỏ comment dòng Light.
+                -->
+                <ResourceDictionary Source="Assets/Styles/ThemeDark.xaml"/>
+                <!-- <ResourceDictionary Source="Assets/Styles/ThemeLight.xaml"/> -->
+
+                <!-- [3] Typography — style chữ: Text.H1, Text.Body, Text.Label... -->
+                <ResourceDictionary Source="Assets/Styles/Typography.xaml"/>
+
+                <!-- [4] Controls — TextBox (có placeholder), ComboBox, CheckBox,
+                                    ProgressBar, ScrollBar -->
+                <ResourceDictionary Source="Assets/Styles/Controls.xaml"/>
+
+                <!-- [5] Buttons — Primary, Secondary, Ghost (= NavButtonStyle),
+                                   Danger, Icon, Link -->
+                <ResourceDictionary Source="Assets/Styles/Buttons.xaml"/>
+
+                <!-- [6] Layout — AppBarStyle, Card.*, Panel.*, Badge.*, Tooltip,
+                                  Spacing constants -->
+                <ResourceDictionary Source="Assets/Styles/Layout.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/Converters.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- ══════════════════════════════════════════
+                 GLOBAL IMPLICIT STYLES
+                 Đặt SAU MergedDictionaries để BasedOn
+                 hoạt động đúng (các key đã tồn tại rồi).
+            ══════════════════════════════════════════ -->
+
+            <!-- Mọi TextBlock tự động dùng font/render chuẩn từ Text.Base -->
+            <Style TargetType="TextBlock" BasedOn="{StaticResource Text.Base}"/>
+
+            <!-- Mọi Window dùng nền và font mặc định của app -->
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{DynamicResource Brush.Background.App}"/>
+                <Setter Property="Foreground"  Value="{DynamicResource Brush.Text.Primary}"/>
+                <Setter Property="FontFamily"  Value="Segoe UI Variable, Segoe UI, sans-serif"/>
+                <Setter Property="FontSize"    Value="14"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
+
 </Application>
