@@ -1,70 +1,40 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--
-    ╔══════════════════════════════════════════════════════════╗
-    ║              BẢNG MÀU & BRUSH HỆ THỐNG                 ║
-    ║  File: Assets/Styles/Colors.xaml                        ║
-    ║  Mô tả: Định nghĩa toàn bộ màu sắc dùng trong app.     ║
-    ║  Cách dùng: Merge file này vào App.xaml hoặc            ║
-    ║             ThemeDark/ThemeLight.xaml                   ║
-    ╚══════════════════════════════════════════════════════════╝
+    <!-- BẢNG MÀU & BRUSH HỆ THỐNG File: Assets/Styles/Colors.xaml Mô tả: Định nghĩa toàn bộ màu sắ... -->
 
-    QUY ƯỚC ĐẶT TÊN BRUSH:
-    - Brush.Brand.*      → Màu thương hiệu (accent, secondary...)
-    - Brush.Background.* → Nền của các lớp (app, surface, card...)
-    - Brush.Text.*       → Màu chữ (primary, secondary, muted, disabled)
-    - Brush.Border.*     → Viền (default, focus, error)
-    - Brush.State.*      → Trạng thái hover/pressed/selected
-    - Brush.Status.*     → Trạng thái ứng dụng (success, warning, error, info)
-    - Brush.Overlay      → Lớp phủ mờ khi loading/dialog
+    <!-- GIÁ TRỊ MÀU GỐC (Raw Color Palette) Đây là bảng màu gốc, KHÔNG dùng trực tiếp trong UI. Ch... -->
 
-    CHÚ Ý:
-    - File này KHÔNG nên dùng trực tiếp. Thay vào đó hãy dùng
-      ThemeDark.xaml hoặc ThemeLight.xaml (chúng merge file này
-      rồi override theo theme).
-    - Mọi màu runtime đều tham chiếu qua {DynamicResource Brush.Xxx}
-      để hỗ trợ đổi theme nóng (hot-swap) mà không cần restart app.
-    -->
-
-    <!-- ══════════════════════════════════════════
-         GIÁ TRỊ MÀU GỐC (Raw Color Palette)
-         Đây là bảng màu gốc, KHÔNG dùng trực tiếp
-         trong UI. Chỉ tham chiếu bởi các Brush bên dưới.
-    ══════════════════════════════════════════ -->
-
-    <!-- Màu thương hiệu chính: xanh dương-tím hiện đại -->
+    <!-- Màu thương hiệu chính: xanh dương-tím hiện đại. -->
     <Color x:Key="Color.Brand.Primary">#5B6CF9</Color>
     <Color x:Key="Color.Brand.PrimaryHover">#4A5BF0</Color>
     <Color x:Key="Color.Brand.PrimaryPressed">#3A4AE0</Color>
     <Color x:Key="Color.Brand.Accent">#7C8DFF</Color>
     <Color x:Key="Color.Brand.Secondary">#FF6B9D</Color>
 
-    <!-- Màu trạng thái -->
+    <!-- Màu trạng thái. -->
     <Color x:Key="Color.Success">#22C55E</Color>
     <Color x:Key="Color.Warning">#F59E0B</Color>
     <Color x:Key="Color.Error">#EF4444</Color>
     <Color x:Key="Color.Info">#3B82F6</Color>
 
-    <!-- ══════════════════════════════════════════
-         BRUSH DÙNG CHUNG (Không phụ thuộc theme)
-    ══════════════════════════════════════════ -->
+    <!-- BRUSH DÙNG CHUNG (Không phụ thuộc theme). -->
 
-    <!-- Màu thương hiệu - dùng ở cả 2 theme -->
+    <!-- Màu thương hiệu - dùng ở cả 2 theme. -->
     <SolidColorBrush x:Key="Brush.Brand.Primary"    Color="{StaticResource Color.Brand.Primary}"/>
     <SolidColorBrush x:Key="Brush.Brand.PrimaryHover"  Color="{StaticResource Color.Brand.PrimaryHover}"/>
     <SolidColorBrush x:Key="Brush.Brand.PrimaryPressed" Color="{StaticResource Color.Brand.PrimaryPressed}"/>
     <SolidColorBrush x:Key="Brush.Brand.Accent"     Color="{StaticResource Color.Brand.Accent}"/>
     <SolidColorBrush x:Key="Brush.Brand.Secondary"  Color="{StaticResource Color.Brand.Secondary}"/>
 
-    <!-- Màu trạng thái ứng dụng -->
+    <!-- Màu trạng thái ứng dụng. -->
     <SolidColorBrush x:Key="Brush.Status.Success"   Color="{StaticResource Color.Success}"/>
     <SolidColorBrush x:Key="Brush.Status.Warning"   Color="{StaticResource Color.Warning}"/>
     <SolidColorBrush x:Key="Brush.Status.Error"     Color="{StaticResource Color.Error}"/>
     <SolidColorBrush x:Key="Brush.Status.Info"      Color="{StaticResource Color.Info}"/>
 
-    <!-- Brush nút bấm chính (Primary Button) -->
+    <!-- Brush nút bấm chính (Primary Button). -->
     <LinearGradientBrush x:Key="Brush.Brand.PrimaryGradient" StartPoint="0,0" EndPoint="1,1">
         <GradientStop Color="#5B6CF9" Offset="0"/>
         <GradientStop Color="#7C8DFF" Offset="1"/>

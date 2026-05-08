@@ -1,28 +1,10 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--
-    ╔══════════════════════════════════════════════════════════╗
-    ║              STYLE: CONTROLS (Form Controls)            ║
-    ║  File: Assets/Styles/Controls.xaml                      ║
-    ║  Mô tả: Style cho các control nhập liệu & hiển thị.    ║
-    ╚══════════════════════════════════════════════════════════╝
+    <!-- STYLE: CONTROLS (Form Controls) File: Assets/Styles/Controls.xaml Mô tả: Style cho các con... -->
 
-    NỘI DUNG:
-    - TextBox          → Ô nhập văn bản (có placeholder qua Tag)
-    - PasswordBox      → Ô nhập mật khẩu
-    - ComboBox         → Danh sách thả xuống
-    - CheckBox         → Ô tích chọn
-    - RadioButton      → Nút chọn một
-    - ProgressBar      → Thanh tiến độ (determinate + indeterminate)
-    - ScrollBar        → Thanh cuộn tùy chỉnh
-    - Separator        → Đường phân cách
-    -->
-
-    <!-- ════════════════════════
-         TEXTBOX
-    ════════════════════════ -->
+    <!-- TEXTBOX. -->
     <Style x:Key="Input.TextBox" TargetType="TextBox">
         <Setter Property="Background"           Value="{DynamicResource Brush.Background.Input}"/>
         <Setter Property="Foreground"           Value="{DynamicResource Brush.Text.Primary}"/>
@@ -43,8 +25,8 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="8">
                         <Grid>
-                            <!-- Placeholder text (hiển thị khi textbox rỗng) -->
-                            <!-- Lưu ý: Dùng Tag để truyền placeholder text từ XAML -->
+                            <!-- Placeholder text (hiển thị khi textbox rỗng). -->
+                            <!-- Lưu ý: Dùng Tag để truyền placeholder text từ XAML. -->
                             <TextBlock x:Name="PART_Placeholder"
                                        Text="{TemplateBinding Tag}"
                                        Foreground="{DynamicResource Brush.Text.Muted}"
@@ -60,7 +42,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- Hiện placeholder khi text rỗng và không focus -->
+                        <!-- Hiện placeholder khi text rỗng và không focus. -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="Text" Value=""/>
@@ -68,18 +50,18 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Placeholder" Property="Visibility" Value="Visible"/>
                         </MultiTrigger>
-                        <!-- Focus: đổi viền thành màu brand -->
+                        <!-- Focus: đổi viền thành màu brand. -->
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="PART_Border" Property="BorderBrush"
                                     Value="{DynamicResource Brush.Border.Focus}"/>
                             <Setter TargetName="PART_Border" Property="BorderThickness" Value="2"/>
                         </Trigger>
-                        <!-- Hover: viền sáng hơn chút -->
+                        <!-- Hover: viền sáng hơn chút. -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="PART_Border" Property="BorderBrush"
                                     Value="{DynamicResource Brush.Brand.Accent}"/>
                         </Trigger>
-                        <!-- Disabled -->
+                        <!-- Disabled. -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="PART_Border" Property="Opacity" Value="0.5"/>
                         </Trigger>
@@ -89,7 +71,7 @@
         </Setter>
     </Style>
 
-    <!-- TextBox đa dòng (TextArea) -->
+    <!-- TextBox đa dòng (TextArea). -->
     <Style x:Key="Input.TextArea" TargetType="TextBox" BasedOn="{StaticResource Input.TextBox}">
         <Setter Property="AcceptsReturn"        Value="True"/>
         <Setter Property="TextWrapping"         Value="Wrap"/>
@@ -99,9 +81,7 @@
         <Setter Property="Padding"              Value="12"/>
     </Style>
 
-    <!-- ════════════════════════
-         COMBOBOX
-    ════════════════════════ -->
+    <!-- COMBOBOX. -->
     <Style x:Key="Input.ComboBox" TargetType="ComboBox">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Input}"/>
         <Setter Property="Foreground"       Value="{DynamicResource Brush.Text.Primary}"/>
@@ -112,7 +92,7 @@
         <Setter Property="Height"           Value="40"/>
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
-                <!-- Style cho từng item trong dropdown -->
+                <!-- Style cho từng item trong dropdown. -->
                 <Style TargetType="ComboBoxItem">
                     <Setter Property="Background"   Value="Transparent"/>
                     <Setter Property="Foreground"   Value="{DynamicResource Brush.Text.Primary}"/>
@@ -133,9 +113,7 @@
         </Setter>
     </Style>
 
-    <!-- ════════════════════════
-         CHECKBOX
-    ════════════════════════ -->
+    <!-- CHECKBOX. -->
     <Style x:Key="Input.CheckBox" TargetType="CheckBox">
         <Setter Property="Foreground"       Value="{DynamicResource Brush.Text.Primary}"/>
         <Setter Property="FontSize"         Value="14"/>
@@ -145,7 +123,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <!-- Hộp tick -->
+                        <!-- Hộp tick. -->
                         <Border x:Name="PART_Box"
                                 Width="18" Height="18"
                                 Background="{DynamicResource Brush.Background.Input}"
@@ -154,7 +132,7 @@
                                 CornerRadius="4"
                                 Margin="0,0,8,0"
                                 VerticalAlignment="Center">
-                            <!-- Dấu tick (ẩn mặc định) -->
+                            <!-- Dấu tick (ẩn mặc định). -->
                             <Path x:Name="PART_Check"
                                   Data="M2,9 L7,14 L16,4"
                                   Stroke="{DynamicResource Brush.Text.OnPrimary}"
@@ -168,7 +146,7 @@
                         <ContentPresenter VerticalAlignment="Center"/>
                     </StackPanel>
                     <ControlTemplate.Triggers>
-                        <!-- Khi được tick -->
+                        <!-- Khi được tick. -->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PART_Box" Property="Background"
                                     Value="{DynamicResource Brush.Brand.Primary}"/>
@@ -176,12 +154,12 @@
                                     Value="{DynamicResource Brush.Brand.Primary}"/>
                             <Setter TargetName="PART_Check" Property="Visibility" Value="Visible"/>
                         </Trigger>
-                        <!-- Hover -->
+                        <!-- Hover. -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="PART_Box" Property="BorderBrush"
                                     Value="{DynamicResource Brush.Brand.Primary}"/>
                         </Trigger>
-                        <!-- Disabled -->
+                        <!-- Disabled. -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.5"/>
                             <Setter Property="Cursor" Value="Arrow"/>
@@ -192,10 +170,8 @@
         </Setter>
     </Style>
 
-    <!-- ════════════════════════
-         PROGRESSBAR
-    ════════════════════════ -->
-    <!-- Determinate (có %) -->
+    <!-- PROGRESSBAR. -->
+    <!-- Determinate (có %). -->
     <Style x:Key="Progress.Bar" TargetType="ProgressBar">
         <Setter Property="Height"               Value="6"/>
         <Setter Property="Background"           Value="{DynamicResource Brush.Background.Card}"/>
@@ -205,16 +181,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
                     <Grid>
-                        <!-- Track (nền) -->
+                        <!-- Track (nền). -->
                         <Border x:Name="PART_Track"
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="3"/>
-                        <!-- Fill (phần đã hoàn thành) -->
+                        <!-- Fill (phần đã hoàn thành). -->
                         <Border x:Name="PART_Indicator"
                                 HorizontalAlignment="Left"
                                 Background="{TemplateBinding Foreground}"
                                 CornerRadius="3"/>
-                        <!-- Indeterminate animation -->
+                        <!-- Indeterminate animation. -->
                         <Border x:Name="PART_GlowRect"
                                 Visibility="Collapsed"
                                 CornerRadius="3">
@@ -256,12 +232,10 @@
         </Setter>
     </Style>
 
-    <!-- Override ProgressBar mặc định nếu muốn áp global -->
+    <!-- Override ProgressBar mặc định nếu muốn áp global. -->
     <Style TargetType="ProgressBar" BasedOn="{StaticResource Progress.Bar}"/>
 
-    <!-- ════════════════════════
-         SEPARATOR (Đường phân cách)
-    ════════════════════════ -->
+    <!-- SEPARATOR (Đường phân cách). -->
     <Style x:Key="UI.Separator" TargetType="Separator">
         <Setter Property="Background"       Value="{DynamicResource Brush.Border.Subtle}"/>
         <Setter Property="Height"           Value="1"/>
@@ -269,10 +243,7 @@
         <Setter Property="Margin"           Value="0,8"/>
     </Style>
 
-    <!-- ════════════════════════
-         SCROLLBAR (Mỏng, hiện đại)
-         Áp dụng global lên toàn app
-    ════════════════════════ -->
+    <!-- SCROLLBAR (Mỏng, hiện đại) Áp dụng global lên toàn app. -->
     <Style x:Key="ScrollBar.Thin" TargetType="ScrollBar">
         <Setter Property="Background"   Value="{DynamicResource Brush.ScrollBar.Track}"/>
         <Setter Property="Width"        Value="6"/>
@@ -315,7 +286,7 @@
         </Setter>
     </Style>
 
-    <!-- Override global ScrollBar -->
+    <!-- Override global ScrollBar. -->
     <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBar.Thin}"/>
 
 </ResourceDictionary>
