@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:ezMix.App.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ezMix" Height="450" Width="800">
+        Title="ezMix" Height="520" Width="900" MinHeight="420" MinWidth="620">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
@@ -19,24 +19,27 @@
         </DataTemplate>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-
-        <Border Grid.Row="0" Style="{StaticResource AppBarStyle}">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    <DockPanel LastChildFill="True">
+        <Border DockPanel.Dock="Top" MinHeight="56" Style="{StaticResource AppBarStyle}">
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="18">ez</TextBlock>
                 <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="18" Margin="0,0,20,0">Mix</TextBlock>
 
                 <Button Content="🏠 Trang chủ" Command="{Binding HomeCommand}" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="👤 Liên hệ" Command="{Binding ContactCommand}" Style="{StaticResource NavButtonStyle}"/>
-            </StackPanel>
+            </WrapPanel>
         </Border>
 
-        <Grid Grid.Row="1">
+        <Border DockPanel.Dock="Bottom" MinHeight="56" Style="{StaticResource AppBarStyle}">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Copyright 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="14" Margin="5,0,8,0"/>
+                <Button Content="Facebook" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Zalo" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Youtube" Style="{StaticResource NavButtonStyle}"/>
+            </WrapPanel>
+        </Border>
+
+        <Grid>
             <ContentControl Content="{Binding CurrentView}"/>
 
             <Grid Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}"
@@ -52,14 +55,5 @@
                 </StackPanel>
             </Grid>
         </Grid>
-
-        <Border Grid.Row="2" Style="{StaticResource AppBarStyle}">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Copyright 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="14" Margin="5,0,0,0"/>
-                <Button Content="Facebook" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="Zalo" Style="{StaticResource NavButtonStyle}"/>
-                <Button Content="Youtube" Style="{StaticResource NavButtonStyle}"/>
-            </StackPanel>
-        </Border>
-    </Grid>
+    </DockPanel>
 </Window>

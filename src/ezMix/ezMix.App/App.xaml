@@ -10,6 +10,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Assets/Styles/ThemeColors.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/BootstrapButtonStyles.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/LayoutStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

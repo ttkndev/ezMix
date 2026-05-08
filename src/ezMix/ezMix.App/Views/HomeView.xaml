@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ezMix.App.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Trang chủ" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <StackPanel>
+                <TextBlock Text="Trang chủ" FontSize="34" FontWeight="SemiBold" Margin="0,0,0,16"/>
+                <TextBlock Text="Button style giống Bootstrap:" FontSize="16" Margin="0,0,0,10"/>
+                <WrapPanel>
+                    <Button Content="Primary" Style="{StaticResource BtnPrimary}"/>
+                    <Button Content="Secondary" Style="{StaticResource BtnSecondary}"/>
+                    <Button Content="Success" Style="{StaticResource BtnSuccess}"/>
+                    <Button Content="Danger" Style="{StaticResource BtnDanger}"/>
+                    <Button Content="Dark" Style="{StaticResource BtnDark}"/>
+                    <Button Content="Light" Style="{StaticResource BtnLight}"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </UserControl>
