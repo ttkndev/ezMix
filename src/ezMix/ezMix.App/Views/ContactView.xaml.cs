@@ -1,5 +1,4 @@
-﻿using ezMix.App.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +20,9 @@ namespace ezMix.App.Views
     /// </summary>
     public partial class ContactView : UserControl
     {
-        public ContactView(ContactViewModel viewModel)
+        public ContactView()
         {
             InitializeComponent();
-
-            DataContext = viewModel;
         }
     }
 }
