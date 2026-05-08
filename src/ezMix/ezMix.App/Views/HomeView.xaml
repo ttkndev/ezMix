@@ -4,94 +4,141 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="900" d:DesignWidth="1200">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource PageContentGridStyle}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+             d:DesignHeight="960" d:DesignWidth="1366">
+    <Grid Background="{DynamicResource Brush.Background.Page}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,0,12">
+            <Grid Style="{StaticResource PageContentGridStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <Border Style="{StaticResource CardPanelStyle}" Padding="26" Margin="0,0,0,20">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <Border Style="{StaticResource CardPanelStyle}" Padding="32" Margin="0,0,0,20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Border Width="74" Height="74" CornerRadius="16" Background="#E6F0FF" VerticalAlignment="Top">
-                        <TextBlock Text="🧩" FontSize="34" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
+                        <Border Width="72" Height="72"
+                                Background="#EAF2FF"
+                                CornerRadius="20"
+                                VerticalAlignment="Top">
+                            <TextBlock Text="🧩"
+                                       FontSize="34"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
 
-                    <StackPanel Grid.Column="1" Margin="18,0,0,0">
-                        <TextBlock Text="ezMix — Trộn đề nhanh, chuẩn và đẹp"
-                                   Style="{StaticResource PageTitleTextStyle}"
-                                   FontSize="32"
-                                   TextWrapping="Wrap"/>
-                        <TextBlock Margin="0,10,0,0"
-                                   Style="{StaticResource BodyTextStyle}"
-                                   Foreground="{DynamicResource Brush.Text.Muted}"
-                                   TextWrapping="Wrap">
-                            Giúp giáo viên chuẩn hóa và trộn đề kiểm tra chỉ trong vài bước,
-                            đảm bảo chính xác, nhất quán và dễ rà soát trước khi in hoặc xuất file.
-                        </TextBlock>
+                        <StackPanel Grid.Column="1" Margin="18,0,0,0">
+                            <TextBlock Style="{StaticResource PageTitleTextStyle}"
+                                       FontSize="32"
+                                       TextWrapping="Wrap">
+                                <Run Text="Phần mềm trộn đề"/>
+                            </TextBlock>
+
+                            <TextBlock Margin="0,10,0,0"
+                                       Style="{StaticResource BodyTextStyle}"
+                                       Foreground="{DynamicResource Brush.Text.Muted}"
+                                       TextAlignment="Left"
+                                       TextWrapping="Wrap">
+                                Giúp bạn
+                                <Run Text=" chuẩn hóa" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                                <Run Text=" và"/>
+                                <Run Text=" trộn đề" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                                <Run Text=" kiểm tra nhanh chóng, chính xác, bảo mật và hoàn toàn miễn phí."/>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Padding="24" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Hướng dẫn định dạng câu hỏi"
+                                   Style="{StaticResource SectionTitleTextStyle}"
+                                   FontSize="24"
+                                   Margin="0,0,0,16"/>
+
+                        <UniformGrid Columns="2">
+                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="0,0,10,10">
+                                <StackPanel>
+                                    <TextBlock Text="✅ Trắc nghiệm Nhiều lựa chọn" FontSize="18" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
+                                    <TextBlock Text="A. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Text="B. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Style="{StaticResource BodyTextStyle}">
+                                        <Run Text="C." TextDecorations="Underline"/>
+                                        <Run Text=" Nội dung đáp án."/>
+                                    </TextBlock>
+                                    <TextBlock Text="D. Nội dung đáp án." Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Text="📝 Đáp án đúng: C" Style="{StaticResource BodyTextStyle}" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,10,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="10,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="✔️ Trắc nghiệm Đúng–Sai" FontSize="18" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
+                                    <TextBlock Style="{StaticResource BodyTextStyle}">
+                                        <Run Text="a)" TextDecorations="Underline"/>
+                                        <Run Text=" Nội dung phát biểu"/>
+                                    </TextBlock>
+                                    <TextBlock Text="b) Nội dung phát biểu" Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Style="{StaticResource BodyTextStyle}">
+                                        <Run Text="c)" TextDecorations="Underline"/>
+                                        <Run Text=" Nội dung phát biểu"/>
+                                    </TextBlock>
+                                    <TextBlock Text="d) Nội dung phát biểu" Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Text="📝 Phát biểu đúng (a, c), sai (b, d)" Style="{StaticResource BodyTextStyle}" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,10,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="0,10,10,0">
+                                <StackPanel>
+                                    <TextBlock Text="✍️ Trắc nghiệm Trả lời ngắn" FontSize="18" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
+                                    <TextBlock Text="A. 0000" Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Text="📝 Đáp án: '0000'" Style="{StaticResource BodyTextStyle}" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,10,0,0"/>
+                                    <TextBlock Text="Số lượng kí tự của đáp án ≤ 4" Style="{StaticResource BodyTextStyle}" Foreground="{DynamicResource Brush.Text.Muted}" Margin="0,8,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="10,10,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="🧾 Tự luận" FontSize="18" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
+                                    <TextBlock Text="A. Hướng dẫn giải" Style="{StaticResource BodyTextStyle}"/>
+                                    <TextBlock Text="📝 Đáp án: 'Hướng dẫn giải'" Style="{StaticResource BodyTextStyle}" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" Margin="0,10,0,0"/>
+                                    <TextBlock Text="Số lượng kí tự của đáp án ≥ 5" Style="{StaticResource BodyTextStyle}" Foreground="{DynamicResource Brush.Text.Muted}" Margin="0,8,0,0"/>
+                                    <TextBlock Text="Lưu ý: Nếu câu tự luận có nhiều ý hỏi thì bắt đầu bằng các ý hỏi là a/ b/ c/... để nhận dạng tốt nhất."
+                                               Style="{StaticResource BodyTextStyle}"
+                                               Foreground="{StaticResource PrimaryBrush}"
+                                               TextWrapping="Wrap"
+                                               Margin="0,8,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </UniformGrid>
                     </StackPanel>
-                </Grid>
-            </Border>
+                </Border>
 
-            <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
-                <StackPanel>
-                    <TextBlock Text="Định dạng đề được hỗ trợ"
-                               Style="{StaticResource SectionTitleTextStyle}"
-                               FontSize="26"
-                               Margin="0,0,0,16"/>
+                <Border Grid.Row="2" Background="#FFF8E1" BorderBrush="#F8E5A5" BorderThickness="1" CornerRadius="12" Padding="16" Margin="0,0,0,16">
+                    <TextBlock TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Style="{StaticResource BodyTextStyle}"
+                               Foreground="#7A5A00"
+                               Text="⚠️ Hiện chức năng Chuẩn hóa nhận dạng các kí hiệu A., B., C., D. là kí hiệu đáp án. Bạn nên rà soát và điều chỉnh theo cảnh báo nếu trong nội dung có thêm các kí hiệu này."/>
+                </Border>
 
-                    <UniformGrid Columns="2">
-                        <Border Style="{StaticResource CardPanelStyle}" Background="#F7FAFF" Margin="0,0,10,10" Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="✅ Trắc nghiệm nhiều lựa chọn" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,8"/>
-                                <TextBlock Text="A/B/C/D rõ ràng, tự nhận diện đáp án và giữ định dạng nhất quán." Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
-                            </StackPanel>
-                        </Border>
-
-                        <Border Style="{StaticResource CardPanelStyle}" Background="#F7FAFF" Margin="10,0,0,10" Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="✔️ Trắc nghiệm Đúng–Sai" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,8"/>
-                                <TextBlock Text="Nhận diện các phát biểu theo từng ý, hỗ trợ đáp án dạng tổ hợp đúng/sai." Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
-                            </StackPanel>
-                        </Border>
-
-                        <Border Style="{StaticResource CardPanelStyle}" Background="#F7FAFF" Margin="0,10,10,0" Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="✍️ Trắc nghiệm trả lời ngắn" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,8"/>
-                                <TextBlock Text="Phù hợp với đáp án ngắn (ví dụ mã số, kết quả rút gọn), dễ đối chiếu khi chấm." Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
-                            </StackPanel>
-                        </Border>
-
-                        <Border Style="{StaticResource CardPanelStyle}" Background="#F7FAFF" Margin="10,10,0,0" Padding="16">
-                            <StackPanel>
-                                <TextBlock Text="🧾 Tự luận" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,8"/>
-                                <TextBlock Text="Giữ cấu trúc đề tự luận và hướng dẫn giải để đảm bảo nội dung đầy đủ khi trộn." Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
-                            </StackPanel>
-                        </Border>
-                    </UniformGrid>
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Row="2" Style="{StaticResource CardPanelStyle}">
-                <StackPanel>
-                    <TextBlock Text="Gợi ý sử dụng hiệu quả"
-                               Style="{StaticResource SectionTitleTextStyle}"
-                               FontSize="22"
-                               Margin="0,0,0,12"/>
-                    <TextBlock Style="{StaticResource BodyTextStyle}" Text="• Bước 1: Chuẩn hóa nội dung đề theo mẫu định dạng." Margin="0,4,0,4"/>
-                    <TextBlock Style="{StaticResource BodyTextStyle}" Text="• Bước 2: Kiểm tra nhanh vùng cảnh báo trước khi trộn." Margin="0,4,0,4"/>
-                    <TextBlock Style="{StaticResource BodyTextStyle}" Text="• Bước 3: Trộn đề và xuất bản in với bố cục nhất quán." Margin="0,4,0,4"/>
-                    <TextBlock Style="{StaticResource CaptionTextStyle}" Foreground="{DynamicResource Brush.Text.Muted}" Margin="0,12,0,0"
-                               Text="Lưu ý và thông điệp từ tác giả đã được chuyển sang trang Giới thiệu (About) để HomeView tập trung vào trải nghiệm sử dụng."/>
-                </StackPanel>
-            </Border>
-        </Grid>
-    </ScrollViewer>
+                <Border Grid.Row="3" Background="{StaticResource PrimaryBrush}" CornerRadius="12" Padding="16">
+                    <TextBlock Style="{StaticResource BodyTextStyle}"
+                               Foreground="White"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Text="💙 Tác giả luôn nỗ lực để mang lại trải nghiệm tốt, nếu có sai sót rất mong nhận được góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện và hỗ trợ tốt nhất cho cộng đồng. 💙"/>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
 </UserControl>
