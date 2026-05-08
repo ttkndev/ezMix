@@ -5,6 +5,8 @@
              xmlns:conv="clr-namespace:ezMix.App.Assets.Converters">
     <Application.Resources>
         <ResourceDictionary>
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+            
             <Style TargetType="TextBlock">
                 <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
                 <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
@@ -14,7 +16,6 @@
             <Style TargetType="Control">
                 <Setter Property="FontFamily" Value="Segoe UI"/>
             </Style>
-            <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Assets/Styles/Colors.xaml"/>
@@ -23,6 +24,7 @@
                 <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/ButtonStyle.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/LayoutStyle.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/DarkTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -4,88 +4,127 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource PageContentGridStyle}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid Background="{DynamicResource Brush.Surface.Primary}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Style="{StaticResource PageContentGridStyle}" Margin="40,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <StackPanel>
-                <TextBlock Text="{Binding Title}" Style="{StaticResource PageTitleTextStyle}" Margin="0,0,0,12"/>
-                <TextBlock Text="{Binding Summary}" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap" Margin="0,0,0,20"/>
-            </StackPanel>
-
-            <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
-                <StackPanel>
-                    <TextBlock Text="Dịch vụ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,10"/>
-                    <ItemsControl ItemsSource="{Binding Capabilities}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding StringFormat=• {0}}" Style="{StaticResource BodyTextStyle}" Margin="0,4,0,4" TextWrapping="Wrap"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                <StackPanel Margin="0,0,0,24">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource PageTitleTextStyle}" Margin="0,0,0,8"/>
+                    <TextBlock Text="{Binding Summary}" Style="{StaticResource BodyTextStyle}" 
+                               Foreground="{DynamicResource Brush.Text.Muted}" TextWrapping="Wrap"/>
                 </StackPanel>
-            </Border>
 
-            <Border Grid.Row="2" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20" Background="{DynamicResource Brush.Surface.Warning}">
-                <TextBlock TextWrapping="Wrap"
-                           TextAlignment="Left"
-                           Style="{StaticResource BodyTextStyle}"
-                           Foreground="{DynamicResource Brush.Brand.Accent}"
-                           Text="⚠️ Lưu ý: Ở chức năng Chuẩn hóa, phần mềm nhận dạng các ký hiệu A. / B. / C. / D. là đáp án lựa chọn. Nếu nội dung câu hỏi có thêm các ký hiệu này, bạn cần rà soát và chỉnh lại theo cảnh báo để đảm bảo kết quả chính xác."/>
-            </Border>
-
-            <Border Grid.Row="3" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
-                <StackPanel>
-                    <TextBlock Text="Thông tin liên hệ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,10"/>
-                    <ItemsControl ItemsSource="{Binding ContactItems}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Button Margin="6"
-                                        Padding="10,6"
-                                        BorderThickness="1"
-                                        BorderBrush="{DynamicResource Brush.Border.Subtle}"
-                                        Background="{DynamicResource Brush.Surface.Card}"
-                                        Foreground="{DynamicResource Brush.Brand.Primary}"
-                                        Cursor="Hand">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="{DynamicResource Brush.Surface.Info}"/>
-                                                    <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border.Info}"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Icon}" Margin="0,0,6,0"/>
-                                        <TextBlock Text="{Binding Label}" FontSize="14"/>
+                <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Dịch vụ cung cấp" Style="{StaticResource SectionTitleTextStyle}" 
+                                   Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,16"/>
+                        <ItemsControl ItemsSource="{Binding Capabilities}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0,4">
+                                        <TextBlock Text="✦" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,10,0"/>
+                                        <TextBlock Text="{Binding}" Style="{StaticResource BodyTextStyle}"/>
                                     </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </StackPanel>
-            </Border>
-
-            <Border Grid.Row="4" Style="{StaticResource CardPanelStyle}">
-                <Border Padding="12" CornerRadius="8" Background="{DynamicResource Brush.Brand.Primary}">
-                    <TextBlock Style="{StaticResource BodyTextStyle}"
-                               Foreground="{DynamicResource Brush.Text.OnPrimary}"
-                               TextWrapping="Wrap"
-                               Text="💙 Tác giả luôn nỗ lực mang lại trải nghiệm tốt nhất. Nếu có sai sót, rất mong nhận góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện và phục vụ cộng đồng tốt hơn. 💙"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
                 </Border>
-            </Border>
-        </Grid>
-    </ScrollViewer>
+
+                <Border Grid.Row="2" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20" 
+                        Background="{DynamicResource Brush.Status.Warning}" 
+                        BorderBrush="{DynamicResource Brush.Status.WarningText}" BorderThickness="0,0,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="⚠️" FontSize="20" Margin="0,0,12,0" VerticalAlignment="Top"/>
+                        <TextBlock Grid.Column="1" TextWrapping="Wrap" Style="{StaticResource BodyTextStyle}"
+                                   Foreground="{DynamicResource Brush.Status.WarningText}" FontWeight="Medium"
+                                   Text="Lưu ý quan trọng: Ở chức năng Chuẩn hóa, phần mềm nhận dạng các ký hiệu A. / B. / C. / D. là đáp án lựa chọn. Nếu nội dung câu hỏi có thêm các ký hiệu này, bạn cần rà soát và chỉnh lại theo cảnh báo để đảm bảo kết quả chính xác."/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="3" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Thông tin liên hệ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,16"/>
+                        <ItemsControl ItemsSource="{Binding ContactItems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Margin="0,0,10,10" Padding="16,10" Cursor="Hand">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="{DynamicResource Brush.Surface.Primary}"/>
+                                                <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border.Subtle}"/>
+                                                <Setter Property="BorderThickness" Value="1"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border x:Name="btnBorder" Background="{TemplateBinding Background}" 
+                                                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                                                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="{DynamicResource Brush.Brand.Accent}"/>
+                                                                    <Setter Property="BorderBrush" Value="{DynamicResource Brush.Brand.Accent}"/>
+                                                                    <Setter TargetName="btnBorder" Property="Effect">
+                                                                        <Setter.Value>
+                                                                            <DropShadowEffect BlurRadius="10" Opacity="0.2" ShadowDepth="2" Color="{DynamicResource Color.Brand.Accent}"/>
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Label}" FontSize="14" FontWeight="SemiBold">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Foreground" Value="{DynamicResource Brush.Text.Base}"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                                <Setter Property="Foreground" Value="White"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="4" Background="{DynamicResource Brush.Brand.Accent}" CornerRadius="12" Padding="24">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="💙" FontSize="24" Margin="0,0,16,0" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource BodyTextStyle}" VerticalAlignment="Center"
+                                   Foreground="White" FontWeight="Medium" TextWrapping="Wrap"
+                                   Text="Tác giả luôn nỗ lực mang lại trải nghiệm tốt nhất. Nếu có sai sót, rất mong nhận góp ý từ bạn qua nhóm hỗ trợ. Sự đóng góp của bạn là động lực để ezMix ngày càng hoàn thiện hơn."/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
 </UserControl>
