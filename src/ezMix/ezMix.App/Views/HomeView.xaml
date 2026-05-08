@@ -28,7 +28,7 @@
                 <TextBlock Text="Hướng dẫn định dạng câu hỏi" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,20"/>
 
                 <UniformGrid Columns="2">
-                    <Border Style="{StaticResource CardPanelStyle}" Margin="0,0,10,20" BorderLeftBrush="{DynamicResource Brush.Brand.Accent}" BorderLeftThickness="4">
+                    <Border Style="{StaticResource CardPanelStyle}" Margin="0,0,10,20" BorderBrush="{DynamicResource Brush.Brand.Accent}" BorderThickness="4,1,1,1">
                         <StackPanel>
                             <TextBlock Text="✅ Trắc nghiệm Nhiều lựa chọn" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
                             <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,4"/>
@@ -39,7 +39,7 @@
                         </StackPanel>
                     </Border>
 
-                    <Border Style="{StaticResource CardPanelStyle}" Margin="10,0,0,20" BorderLeftBrush="{DynamicResource Brush.Brand.Accent}" BorderLeftThickness="4">
+                    <Border Style="{StaticResource CardPanelStyle}" Margin="10,0,0,20" BorderBrush="{DynamicResource Brush.Brand.Accent}" BorderThickness="4,1,1,1">
                         <StackPanel>
                             <TextBlock Text="✔️ Trắc nghiệm Đúng–Sai" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,12"/>
                             <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,4"/>

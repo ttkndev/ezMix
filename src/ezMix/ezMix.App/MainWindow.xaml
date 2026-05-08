@@ -41,14 +41,18 @@
                     <Button Content="Giới thiệu" Command="{Binding AboutCommand}" Tag="{Binding IsAboutActive}" Style="{StaticResource NavButtonStyle}"/>
                 </WrapPanel>
 
-                <TextBlock Grid.Column="2"
-                           Text="{Binding SubTitle}"
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button Command="{Binding ToggleThemeCommand}" Style="{StaticResource NavButtonStyle}" Margin="0,0,8,0">
+                        <TextBlock Text="Đổi theme"/>
+                    </Button>
+                    <TextBlock Text="{Binding IsDarkMode, StringFormat=Dark: {0}}" Foreground="{DynamicResource Brush.Text.OnPrimary}" Margin="0,0,8,0"/>
+                    <TextBlock Text="{Binding SubTitle}"
                            Foreground="{DynamicResource Brush.Text.Muted}"
                            FontSize="13"
                            TextTrimming="CharacterEllipsis"
-                           MaxWidth="240"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Right"/>
+                           MaxWidth="220"
+                           VerticalAlignment="Center"/>
+                </StackPanel>
             </Grid>
         </Border>
 
