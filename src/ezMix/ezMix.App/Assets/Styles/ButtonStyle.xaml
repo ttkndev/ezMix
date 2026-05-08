@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="BootstrapButtonBase" TargetType="Button">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Text.OnPrimary}"/>
         <Setter Property="Background" Value="{DynamicResource Brush.Bs.Primary}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Brush.Bs.Primary.Border}"/>
         <Setter Property="BorderThickness" Value="1"/>
