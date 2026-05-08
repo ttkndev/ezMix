@@ -74,6 +74,10 @@
     <Compile Include="Assets\Core\BaseViewModel.cs" />
     <Compile Include="Assets\Core\RelayCommand.cs" />
     <Compile Include="Models\FooterLink.cs" />
+    <Compile Include="Services\ExternalLinkService.cs" />
+    <Compile Include="Services\IExternalLinkService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -83,7 +87,15 @@
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Assets\Styles\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\Styles\ButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -94,6 +106,10 @@
     <Page Include="Assets\Styles\NavButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles\SemanticTokens.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Styles\ThemeColor.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -41,8 +41,8 @@ namespace ezMix.App.ViewModels
 
             ContactItems = new ObservableCollection<FooterLink>
             {
-                new FooterLink("0775 426 999", "tel:+84775426999"),
-                new FooterLink("ttkndev@gmail.com", "mailto:ttkndev@gmail.com")
+                new FooterLink("📞 0775 426 999", "tel:+84775426999"),
+                new FooterLink("📧 ttkndev@gmail.com", "mailto:ttkndev@gmail.com")
             };
 
             NavigateHome();

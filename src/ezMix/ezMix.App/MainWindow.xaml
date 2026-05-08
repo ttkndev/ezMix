@@ -20,7 +20,7 @@
     </Window.Resources>
 
     <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top" MinHeight="62" Style="{StaticResource AppBarStyle}" Padding="20,10">
+        <Border DockPanel.Dock="Top" MinHeight="45" Style="{StaticResource AppBarStyle}" Padding="20,10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -31,6 +31,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="20" Text="ez"/>
                     <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="20" Text="Mix"/>
+                    <TextBlock Style="{StaticResource AppBarTextStyle}" FontSize="20" Text=" - Trộn đề"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -49,7 +50,7 @@
             </Grid>
         </Border>
 
-        <Border DockPanel.Dock="Bottom" MinHeight="72" Style="{StaticResource AppBarStyle}" Padding="20,10">
+        <Border DockPanel.Dock="Bottom" MinHeight="45" Style="{StaticResource AppBarStyle}" Padding="20,10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -60,7 +61,7 @@
                 <TextBlock Grid.Column="0" Text="© 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="13" VerticalAlignment="Center" Margin="0,0,20,0"/>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="Social:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                    <TextBlock Text="Theo dõi:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
                     <ItemsControl ItemsSource="{Binding SocialItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
@@ -77,7 +78,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                    <TextBlock Text="Contact:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
+                    <TextBlock Text="Liên hệ:" Style="{StaticResource AppBarTextStyle}" FontWeight="SemiBold" Margin="0,0,8,0"/>
                     <ItemsControl ItemsSource="{Binding ContactItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
