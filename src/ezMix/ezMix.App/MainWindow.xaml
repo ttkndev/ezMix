@@ -3,15 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ezMix.App"
         xmlns:views="clr-namespace:ezMix.App.Views"
         xmlns:viewmodels="clr-namespace:ezMix.App.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
-    
+        Title="ezMix" Height="450" Width="800">
+
     <Window.Resources>
-        <!-- DataTemplate: ánh xạ ViewModel → View -->
         <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
             <views:HomeView/>
         </DataTemplate>
@@ -20,54 +18,48 @@
             <views:ContactView/>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" 
-                Background="#2C3E50">
+        <Border Grid.Row="0" Style="{StaticResource AppBarStyle}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <!--Logo-->
-                <TextBlock Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="18">ez</TextBlock>
-                <TextBlock Foreground="Yellow" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="0,0,20,0">Mix</TextBlock>
-                
-                <!--Menu-->
+                <TextBlock Style="{StaticResource AppBarTextStyle}" FontWeight="Bold" FontSize="18">ez</TextBlock>
+                <TextBlock Style="{StaticResource AppBarTextStyle}" Foreground="{DynamicResource Brush.Brand.Accent}" FontWeight="Bold" FontSize="18" Margin="0,0,20,0">Mix</TextBlock>
+
                 <Button Content="🏠 Trang chủ" Command="{Binding HomeCommand}" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="👤 Liên hệ" Command="{Binding ContactCommand}" Style="{StaticResource NavButtonStyle}"/>
             </StackPanel>
         </Border>
 
         <Grid Grid.Row="1">
-            <!-- ContentControl hiển thị View tương ứng ViewModel -->
             <ContentControl Content="{Binding CurrentView}"/>
 
-            <!-- Loading Overlay -->
             <Grid Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}"
-                  Background="#80000000">
+                  Background="{DynamicResource Brush.Overlay}">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Text="{Binding OverlayMessage, FallbackValue=Đang tải...}"
-                               Foreground="White" 
+                               Foreground="{DynamicResource Brush.Text.OnPrimary}"
                                FontSize="16"
                                HorizontalAlignment="Center"/>
                     <ProgressBar IsIndeterminate="True"
                                  Width="200" Height="15"
                                  Margin="0 12 0 0"/>
                 </StackPanel>
-            </Grid>        
+            </Grid>
         </Grid>
 
-        <Border Background="#2C3E50" Grid.Row="2">
-            <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Copyright 2026 - ttkndev" Foreground="White" FontSize="14" FontWeight="Bold" Margin="5 0 0 0" VerticalAlignment="Center"/>
+        <Border Grid.Row="2" Style="{StaticResource AppBarStyle}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Copyright 2026 - ttkndev" Style="{StaticResource AppBarTextStyle}" FontSize="14" Margin="5,0,0,0"/>
                 <Button Content="Facebook" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="Zalo" Style="{StaticResource NavButtonStyle}"/>
                 <Button Content="Youtube" Style="{StaticResource NavButtonStyle}"/>
             </StackPanel>
         </Border>
-
     </Grid>
 </Window>
