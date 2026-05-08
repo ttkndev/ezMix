@@ -29,6 +29,8 @@ namespace ezMix.App.ViewModels
 
             HomeCommand = new RelayCommand(_ => NavigateHome());
             ContactCommand = new RelayCommand(_ => NavigateContact());
+
+            NavigateHome();
         }
 
         public BaseViewModel CurrentView { get => _currentView; set => SetProperty(ref _currentView, value); }

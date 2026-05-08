@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- Nav Button Style -->
     <Style x:Key="NavButtonStyle" TargetType="Button">
-        <Setter Property="Foreground"        Value="White"/>
+        <Setter Property="Foreground"        Value="{DynamicResource Brush.Text.OnPrimary}"/>
         <Setter Property="Background"        Value="Transparent"/>
         <Setter Property="BorderThickness"   Value="0"/>
         <Setter Property="FontSize"          Value="14"/>
@@ -19,10 +19,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#3D5166"/>
+                            <Setter Property="Background" Value="{DynamicResource Brush.Brand.SurfaceHover}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="#1A252F"/>
+                            <Setter Property="Background" Value="{DynamicResource Brush.Brand.SurfacePressed}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

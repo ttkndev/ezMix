@@ -8,8 +8,9 @@
             <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
 
             <ResourceDictionary.MergedDictionaries>
-                <!-- Thêm style NavButtonStyle -->
+                <ResourceDictionary Source="Assets/Styles/ThemeColors.xaml"/>
                 <ResourceDictionary Source="Assets/Styles/NavButtonStyle.xaml"/>
+                <ResourceDictionary Source="Assets/Styles/LayoutStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
