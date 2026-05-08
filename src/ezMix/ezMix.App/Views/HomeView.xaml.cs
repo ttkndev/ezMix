@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace ezMix.App.Views
 {
-    /// <summary>
-    /// Interaction logic for HomeView.xaml
-    /// </summary>
+    /// Home view code-behind.
     public partial class HomeView : UserControl
     {
         public HomeView()

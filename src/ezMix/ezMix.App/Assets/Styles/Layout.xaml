@@ -1,28 +1,10 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--
-    ╔══════════════════════════════════════════════════════════╗
-    ║               STYLE: LAYOUT & PANELS                    ║
-    ║  File: Assets/Styles/Layout.xaml                        ║
-    ║  Mô tả: Style cho container, card, panel, overlay.      ║
-    ╚══════════════════════════════════════════════════════════╝
+    <!-- STYLE: LAYOUT & PANELS File: Assets/Styles/Layout.xaml Mô tả: Style cho container, card, p... -->
 
-    NỘI DUNG:
-    - AppBarStyle          → Thanh header/footer
-    - Card.*               → Các loại thẻ nội dung
-    - Panel.*              → Panel chứa nhóm control
-    - Badge.*              → Tag nhỏ, nhãn trạng thái
-    - Overlay.*            → Lớp phủ loading/empty state
-    - Spacing constants    → Khoảng cách nhất quán
-    -->
-
-    <!-- ════════════════════════
-         KHOẢNG CÁCH CHUẨN (Spacing Scale)
-         Dùng nhất quán để layout đều đặn.
-         xs=4, sm=8, md=16, lg=24, xl=32, 2xl=48
-    ════════════════════════ -->
+    <!-- KHOẢNG CÁCH CHUẨN (Spacing Scale) Dùng nhất quán để layout đều đặn. xs=4, sm=8, md=16, lg=... -->
     <Thickness x:Key="Spacing.None">0</Thickness>
     <Thickness x:Key="Spacing.XS">4</Thickness>
     <Thickness x:Key="Spacing.SM">8</Thickness>
@@ -31,31 +13,27 @@
     <Thickness x:Key="Spacing.XL">32</Thickness>
     <Thickness x:Key="Spacing.2XL">48</Thickness>
 
-    <!-- Padding riêng cho từng hướng (dùng khi cần) -->
+    <!-- Padding riêng cho từng hướng (dùng khi cần). -->
     <Thickness x:Key="Padding.Page">32,24</Thickness>
     <Thickness x:Key="Padding.Card">20,16</Thickness>
     <Thickness x:Key="Padding.CardSM">14,12</Thickness>
 
-    <!-- ════════════════════════
-         APP BAR (Header & Footer)
-    ════════════════════════ -->
+    <!-- APP BAR (Header & Footer). -->
     <Style x:Key="AppBarStyle" TargetType="Border">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.AppBar}"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Border.Subtle}"/>
-        <!-- Header có viền dưới, Footer có viền trên -->
-        <!-- Override BorderThickness trong XAML nếu cần -->
+        <!-- Header có viền dưới, Footer có viền trên. -->
+        <!-- Override BorderThickness trong XAML nếu cần. -->
         <Setter Property="BorderThickness"  Value="0,0,0,1"/>
     </Style>
 
-    <!-- Footer border (viền trên) -->
+    <!-- Footer border (viền trên). -->
     <Style x:Key="AppBarFooterStyle" TargetType="Border" BasedOn="{StaticResource AppBarStyle}">
         <Setter Property="BorderThickness"  Value="0,1,0,0"/>
     </Style>
 
-    <!-- ════════════════════════
-         CARD (Thẻ nội dung)
-    ════════════════════════ -->
-    <!-- Card cơ bản - đơn giản, nền phẳng -->
+    <!-- CARD (Thẻ nội dung). -->
+    <!-- Card cơ bản - đơn giản, nền phẳng. -->
     <Style x:Key="Card.Base" TargetType="Border">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Card}"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Border.Default}"/>
@@ -64,7 +42,7 @@
         <Setter Property="Padding"          Value="{StaticResource Padding.Card}"/>
     </Style>
 
-    <!-- Card nổi (elevated) - có bóng đổ -->
+    <!-- Card nổi (elevated) - có bóng đổ. -->
     <Style x:Key="Card.Elevated" TargetType="Border" BasedOn="{StaticResource Card.Base}">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Elevated}"/>
         <Setter Property="BorderThickness"  Value="1"/>
@@ -79,7 +57,7 @@
         </Setter>
     </Style>
 
-    <!-- Card có thể click (interactive) - hover highlight -->
+    <!-- Card có thể click (interactive) - hover highlight. -->
     <Style x:Key="Card.Interactive" TargetType="Border" BasedOn="{StaticResource Card.Base}">
         <Setter Property="Cursor"           Value="Hand"/>
         <Style.Triggers>
@@ -90,19 +68,19 @@
         </Style.Triggers>
     </Style>
 
-    <!-- Card nhỏ (compact) - padding ít hơn -->
+    <!-- Card nhỏ (compact) - padding ít hơn. -->
     <Style x:Key="Card.Compact" TargetType="Border" BasedOn="{StaticResource Card.Base}">
         <Setter Property="Padding"          Value="{StaticResource Padding.CardSM}"/>
         <Setter Property="CornerRadius"     Value="8"/>
     </Style>
 
-    <!-- Card accent - viền màu brand nổi bật -->
+    <!-- Card accent - viền màu brand nổi bật. -->
     <Style x:Key="Card.Accent" TargetType="Border" BasedOn="{StaticResource Card.Base}">
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Brand.Primary}"/>
         <Setter Property="BorderThickness"  Value="1.5"/>
     </Style>
 
-    <!-- Card thông báo - có thanh màu bên trái -->
+    <!-- Card thông báo - có thanh màu bên trái. -->
     <Style x:Key="Card.Info" TargetType="Border" BasedOn="{StaticResource Card.Base}">
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Status.Info}"/>
         <Setter Property="BorderThickness"  Value="4,1,1,1"/>
@@ -110,16 +88,14 @@
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Elevated}"/>
     </Style>
 
-    <!-- ════════════════════════
-         PANEL (Nhóm nội dung có tiêu đề)
-    ════════════════════════ -->
-    <!-- Panel chính của trang -->
+    <!-- PANEL (Nhóm nội dung có tiêu đề). -->
+    <!-- Panel chính của trang. -->
     <Style x:Key="Panel.Page" TargetType="Border">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.App}"/>
         <Setter Property="Padding"          Value="{StaticResource Padding.Page}"/>
     </Style>
 
-    <!-- Panel nội dung cuộn (dùng bên trong ScrollViewer) -->
+    <!-- Panel nội dung cuộn (dùng bên trong ScrollViewer). -->
     <Style x:Key="Panel.Content" TargetType="Border">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Surface}"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Border.Subtle}"/>
@@ -128,10 +104,8 @@
         <Setter Property="Padding"          Value="{StaticResource Padding.Card}"/>
     </Style>
 
-    <!-- ════════════════════════
-         BADGE / TAG (Nhãn nhỏ)
-    ════════════════════════ -->
-    <!-- Badge cơ bản - nền mờ -->
+    <!-- BADGE / TAG (Nhãn nhỏ). -->
+    <!-- Badge cơ bản - nền mờ. -->
     <Style x:Key="Badge.Default" TargetType="Border">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Hover}"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Border.Default}"/>
@@ -140,53 +114,46 @@
         <Setter Property="Padding"          Value="10,3"/>
     </Style>
 
-    <!-- Badge màu thương hiệu (primary) -->
+    <!-- Badge màu thương hiệu (primary). -->
     <Style x:Key="Badge.Primary" TargetType="Border" BasedOn="{StaticResource Badge.Default}">
         <Setter Property="Background"       Value="#1F5B6CF9"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Brand.Primary}"/>
     </Style>
 
-    <!-- Badge thành công (success) -->
+    <!-- Badge thành công (success). -->
     <Style x:Key="Badge.Success" TargetType="Border" BasedOn="{StaticResource Badge.Default}">
         <Setter Property="Background"       Value="#1F22C55E"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Status.Success}"/>
     </Style>
 
-    <!-- Badge cảnh báo (warning) -->
+    <!-- Badge cảnh báo (warning). -->
     <Style x:Key="Badge.Warning" TargetType="Border" BasedOn="{StaticResource Badge.Default}">
         <Setter Property="Background"       Value="#1FF59E0B"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Status.Warning}"/>
     </Style>
 
-    <!-- Badge lỗi (error) -->
+    <!-- Badge lỗi (error). -->
     <Style x:Key="Badge.Error" TargetType="Border" BasedOn="{StaticResource Badge.Default}">
         <Setter Property="Background"       Value="#1FEF4444"/>
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Status.Error}"/>
     </Style>
 
-    <!-- ════════════════════════
-         DIVIDER / SECTION HEADER
-    ════════════════════════ -->
-    <!-- Đường kẻ phân cách ngang -->
+    <!-- DIVIDER / SECTION HEADER. -->
+    <!-- Đường kẻ phân cách ngang. -->
     <Style x:Key="UI.Divider" TargetType="Border">
         <Setter Property="BorderBrush"      Value="{DynamicResource Brush.Border.Subtle}"/>
         <Setter Property="BorderThickness"  Value="0,0,0,1"/>
         <Setter Property="Margin"           Value="0,12,0,12"/>
     </Style>
 
-    <!-- ════════════════════════
-         EMPTY STATE (Trạng thái trống)
-         Dùng khi danh sách/nội dung rỗng
-    ════════════════════════ -->
+    <!-- EMPTY STATE (Trạng thái trống) Dùng khi danh sách/nội dung rỗng. -->
     <Style x:Key="Panel.Empty" TargetType="StackPanel">
         <Setter Property="HorizontalAlignment"  Value="Center"/>
         <Setter Property="VerticalAlignment"    Value="Center"/>
         <Setter Property="Margin"               Value="0,40"/>
     </Style>
 
-    <!-- ════════════════════════
-         TOOLTIP
-    ════════════════════════ -->
+    <!-- TOOLTIP. -->
     <Style TargetType="ToolTip">
         <Setter Property="Background"       Value="{DynamicResource Brush.Background.Elevated}"/>
         <Setter Property="Foreground"       Value="{DynamicResource Brush.Text.Primary}"/>
@@ -213,10 +180,7 @@
         </Setter>
     </Style>
 
-    <!-- ════════════════════════
-         WINDOW CHROME
-         Background chính của cửa sổ
-    ════════════════════════ -->
+    <!-- WINDOW CHROME Background chính của cửa sổ. -->
     <Style x:Key="Window.Main" TargetType="Window">
         <Setter Property="Background"   Value="{DynamicResource Brush.Background.App}"/>
         <Setter Property="Foreground"   Value="{DynamicResource Brush.Text.Primary}"/>

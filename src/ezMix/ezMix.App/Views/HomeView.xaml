@@ -1,4 +1,4 @@
-<UserControl x:Class="ezMix.App.Views.HomeView"
+﻿<UserControl x:Class="ezMix.App.Views.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,19 +7,7 @@
              d:DesignHeight="960" d:DesignWidth="1366"
              Background="{DynamicResource Brush.Background.App}">
 
-    <!--
-    ╔══════════════════════════════════════════════════════════╗
-    ║                    HOME VIEW                            ║
-    ║  Layout (top → bottom):                                 ║
-    ║    [1] Hero card   — logo + tên app + mô tả            ║
-    ║    [2] Section     — Hướng dẫn định dạng câu hỏi       ║
-    ║         ├── Card: Trắc nghiệm Nhiều lựa chọn           ║
-    ║         ├── Card: Trắc nghiệm Đúng–Sai                 ║
-    ║         ├── Card: Tự luận (nếu có sau)                 ║
-    ║         └── ...                                        ║
-    ║    [3] Section     — Lưu ý / ghi chú quan trọng        ║
-    ╚══════════════════════════════════════════════════════════╝
-    -->
+    <!-- HOME VIEW Layout (top → bottom): [1] Hero card — logo + tên app + mô tả [2] Section — Hướn... -->
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
@@ -27,9 +15,7 @@
                     MaxWidth="1100"
                     HorizontalAlignment="Center">
 
-            <!-- ══════════════════════════════════════════
-                 [1] HERO CARD — Giới thiệu ứng dụng
-            ══════════════════════════════════════════ -->
+            <!-- [1] HERO CARD — Giới thiệu ứng dụng. -->
             <Border Style="{StaticResource Card.Elevated}" Margin="0,0,0,32">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -37,7 +23,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Icon app -->
+                    <!-- Icon app. -->
                     <Border Width="72" Height="72"
                             CornerRadius="18"
                             VerticalAlignment="Center">
@@ -53,11 +39,11 @@
                                    VerticalAlignment="Center"/>
                     </Border>
 
-                    <!-- Tên app + mô tả -->
+                    <!-- Tên app + mô tả. -->
                     <StackPanel Grid.Column="1"
                                 Margin="24,0,0,0"
                                 VerticalAlignment="Center">
-                        <!-- Tên: "ez" + "Mix" accent -->
+                        <!-- Tên: "ez" + "Mix" accent. -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                             <TextBlock Text="ez"
                                        Style="{StaticResource Text.H1}"
@@ -71,7 +57,7 @@
                                        Foreground="{DynamicResource Brush.Text.Secondary}"/>
                         </StackPanel>
 
-                        <!-- Mô tả ngắn -->
+                        <!-- Mô tả ngắn. -->
                         <TextBlock Style="{StaticResource Text.Body.Secondary}"
                                    TextWrapping="Wrap">
                             <Run Text="Chuẩn hóa và trộn đề thi tự động. "/>
@@ -83,15 +69,13 @@
                 </Grid>
             </Border>
 
-            <!-- ══════════════════════════════════════════
-                 [2] SECTION: Hướng dẫn định dạng câu hỏi
-            ══════════════════════════════════════════ -->
+            <!-- [2] SECTION: Hướng dẫn định dạng câu hỏi. -->
 
-            <!-- Tiêu đề section -->
+            <!-- Tiêu đề section. -->
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center"
                         Margin="0,0,0,16">
-                <!-- Thanh accent dọc bên trái -->
+                <!-- Thanh accent dọc bên trái. -->
                 <Border Width="4" Height="22"
                         CornerRadius="2"
                         Background="{DynamicResource Brush.Brand.Primary}"
@@ -101,14 +85,14 @@
                            Style="{StaticResource Text.H2}"/>
             </StackPanel>
 
-            <!-- Grid 2 cột: các loại câu hỏi -->
+            <!-- Grid 2 cột: các loại câu hỏi. -->
             <UniformGrid Columns="2" Margin="0,0,0,32">
 
-                <!-- ── Card: Trắc nghiệm Nhiều lựa chọn ── -->
+                <!-- Card: Trắc nghiệm Nhiều lựa chọn. -->
                 <Border Style="{StaticResource Card.Accent}"
                         Margin="0,0,10,20">
                     <StackPanel>
-                        <!-- Tiêu đề card -->
+                        <!-- Tiêu đề card. -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
                             <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
                                 <TextBlock Text="A B C D"
@@ -121,17 +105,17 @@
                                        Foreground="{DynamicResource Brush.Brand.Accent}"/>
                         </StackPanel>
 
-                        <!-- Đường phân cách -->
+                        <!-- Đường phân cách. -->
                         <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
 
-                        <!-- Ví dụ định dạng -->
+                        <!-- Ví dụ định dạng. -->
                         <TextBlock Text="Câu 1: Nội dung câu hỏi?"
                                    Style="{StaticResource Text.Body}"
                                    FontWeight="SemiBold"
                                    Margin="0,0,0,6"/>
                         <TextBlock Text="A. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
                         <TextBlock Text="B. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
-                        <!-- Đáp án đúng: nổi bật bằng màu accent + underline -->
+                        <!-- Đáp án đúng: nổi bật bằng màu accent + underline. -->
                         <StackPanel Orientation="Horizontal" Margin="0,2">
                             <TextBlock Text="C. Nội dung đáp án."
                                        Style="{StaticResource Text.Body}"
@@ -145,7 +129,7 @@
                         </StackPanel>
                         <TextBlock Text="D. Nội dung đáp án."   Style="{StaticResource Text.Body}" Margin="0,2"/>
 
-                        <!-- Ghi chú nhỏ -->
+                        <!-- Ghi chú nhỏ. -->
                         <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
                                 HorizontalAlignment="Left">
                             <TextBlock Text="Gạch chân đáp án đúng"
@@ -155,11 +139,11 @@
                     </StackPanel>
                 </Border>
 
-                <!-- ── Card: Trắc nghiệm Đúng–Sai ── -->
+                <!-- Card: Trắc nghiệm Đúng–Sai. -->
                 <Border Style="{StaticResource Card.Accent}"
                         Margin="10,0,0,20">
                     <StackPanel>
-                        <!-- Tiêu đề card -->
+                        <!-- Tiêu đề card. -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
                             <Border Style="{StaticResource Badge.Primary}" Margin="0,0,10,0">
                                 <TextBlock Text="Đ / S"
@@ -172,15 +156,15 @@
                                        Foreground="{DynamicResource Brush.Brand.Accent}"/>
                         </StackPanel>
 
-                        <!-- Đường phân cách -->
+                        <!-- Đường phân cách. -->
                         <Border Style="{StaticResource UI.Divider}" Margin="0,0,0,12"/>
 
-                        <!-- Ví dụ định dạng -->
+                        <!-- Ví dụ định dạng. -->
                         <TextBlock Text="Câu 1: Nội dung câu hỏi?"
                                    Style="{StaticResource Text.Body}"
                                    FontWeight="SemiBold"
                                    Margin="0,0,0,6"/>
-                        <!-- Phát biểu đúng: underline + accent -->
+                        <!-- Phát biểu đúng: underline + accent. -->
                         <StackPanel Orientation="Horizontal" Margin="0,2">
                             <TextBlock Text="a) Nội dung phát biểu"
                                        Style="{StaticResource Text.Body}"
@@ -206,7 +190,7 @@
                         </StackPanel>
                         <TextBlock Text="d) Nội dung phát biểu" Style="{StaticResource Text.Body}" Margin="0,2"/>
 
-                        <!-- Ghi chú nhỏ -->
+                        <!-- Ghi chú nhỏ. -->
                         <Border Style="{StaticResource Badge.Default}" Margin="0,14,0,0"
                                 HorizontalAlignment="Left">
                             <TextBlock Text="Gạch chân phát biểu ĐÚNG"
@@ -218,11 +202,9 @@
 
             </UniformGrid>
 
-            <!-- ══════════════════════════════════════════
-                 [3] SECTION: Lưu ý quan trọng
-            ══════════════════════════════════════════ -->
+            <!-- [3] SECTION: Lưu ý quan trọng. -->
 
-            <!-- Tiêu đề section -->
+            <!-- Tiêu đề section. -->
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center"
                         Margin="0,0,0,16">
@@ -235,7 +217,7 @@
                            Style="{StaticResource Text.H2}"/>
             </StackPanel>
 
-            <!-- Card lưu ý: dùng Card.Info với viền trái màu warning -->
+            <!-- Card lưu ý: dùng Card.Info với viền trái màu warning. -->
             <Border Margin="0,0,0,16"
                     Background="{DynamicResource Brush.Background.Card}"
                     BorderBrush="{DynamicResource Brush.Status.Warning}"

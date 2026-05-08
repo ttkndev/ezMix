@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace ezMix.App.Views
 {
-    /// <summary>
-    /// Interaction logic for ContactView.xaml
-    /// </summary>
+    /// About view code-behind.
     public partial class AboutView : UserControl
     {
         public AboutView()
