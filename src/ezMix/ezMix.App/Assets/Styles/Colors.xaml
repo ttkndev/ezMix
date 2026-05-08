@@ -24,7 +24,9 @@
     <Color x:Key="Color.Bs.Light">#F8F9FA</Color>
     <Color x:Key="Color.Bs.Light.Border">#D3D9DF</Color>
     <Color x:Key="Color.Bs.Light.Text">#212529</Color>
-
     <Color x:Key="Color.Text.OnPrimary">#FFFFFF</Color>
+    <Color x:Key="Color.Text.Muted">#BDC3C7</Color>
+    <Color x:Key="Color.Border.Subtle">#E2E8F0</Color>
+    <Color x:Key="Color.Surface.Card">#FFFFFF</Color>
     <Color x:Key="Color.Overlay">#80000000</Color>
 </ResourceDictionary>

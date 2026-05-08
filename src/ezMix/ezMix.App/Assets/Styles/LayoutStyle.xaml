@@ -3,11 +3,46 @@
     <Style x:Key="AppBarStyle" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource Brush.Brand.Primary}"/>
         <Setter Property="Padding" Value="12,0"/>
+        <Setter Property="MinHeight" Value="56"/>
     </Style>
 
     <Style x:Key="AppBarTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Brush.Text.OnPrimary}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style x:Key="PageContentGridStyle" TargetType="Grid">
+        <Setter Property="Margin" Value="24"/>
+        <Setter Property="MaxWidth" Value="1040"/>
+    </Style>
+
+    <Style x:Key="PageTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="34"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="SectionTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="BodyTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+    </Style>
+    <Style x:Key="CaptionTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+    </Style>
+
+    <Style x:Key="CardPanelStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border.Subtle}"/>
+        <Setter Property="Background" Value="{DynamicResource Brush.Surface.Card}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="18"/>
+    </Style>
+
+    <Style x:Key="FormLabelTextStyle" TargetType="TextBlock" BasedOn="{StaticResource CaptionTextStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Text.Muted}"/>
     </Style>
 </ResourceDictionary>

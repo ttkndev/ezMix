@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="24" MaxWidth="980">
+        <Grid Style="{StaticResource PageContentGridStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -14,33 +14,33 @@
             </Grid.RowDefinitions>
 
             <StackPanel>
-                <TextBlock Text="{Binding Title}" FontSize="34" FontWeight="SemiBold" Margin="0,0,0,12"/>
-                <TextBlock Text="{Binding Summary}" FontSize="16" TextWrapping="Wrap" Margin="0,0,0,20"/>
+                <TextBlock Text="{Binding Title}" Style="{StaticResource PageTitleTextStyle}" Margin="0,0,0,12"/>
+                <TextBlock Text="{Binding Summary}" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap" Margin="0,0,0,20"/>
             </StackPanel>
 
-            <Border Grid.Row="1" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="10" Padding="18" Margin="0,0,0,20">
+            <Border Grid.Row="1" Style="{StaticResource CardPanelStyle}" Margin="0,0,0,20">
                 <StackPanel>
-                    <TextBlock Text="Dịch vụ" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Dịch vụ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,10"/>
                     <ItemsControl ItemsSource="{Binding Capabilities}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding StringFormat=• {0}}" FontSize="15" Margin="0,4,0,4" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding StringFormat=• {0}}" Style="{StaticResource BodyTextStyle}" Margin="0,4,0,4" TextWrapping="Wrap"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
             </Border>
 
-            <Border Grid.Row="2" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="10" Padding="18">
+            <Border Grid.Row="2" Style="{StaticResource CardPanelStyle}">
                 <StackPanel>
-                    <TextBlock Text="Thông tin liên hệ" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Thông tin liên hệ" Style="{StaticResource SectionTitleTextStyle}" Margin="0,0,0,10"/>
                     <ItemsControl ItemsSource="{Binding ContactItems}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderThickness="1" BorderBrush="#CBD5E1" CornerRadius="6" Padding="8" Margin="6">
+                                <Border BorderThickness="1" BorderBrush="{DynamicResource Brush.Border.Subtle}" CornerRadius="6" Padding="8" Margin="6">
                                     <TextBlock Text="{Binding Label}" FontSize="14"/>
                                 </Border>
                             </DataTemplate>
