@@ -5,6 +5,15 @@
              xmlns:conv="clr-namespace:ezMix.App.Assets.Converters">
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="TextBlock">
+                <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+                <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+            </Style>
+
+            <Style TargetType="Control">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+            </Style>
             <conv:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
 
             <ResourceDictionary.MergedDictionaries>

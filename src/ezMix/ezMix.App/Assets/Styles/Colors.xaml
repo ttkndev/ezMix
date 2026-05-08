@@ -28,5 +28,8 @@
     <Color x:Key="Color.Text.Muted">#BDC3C7</Color>
     <Color x:Key="Color.Border.Subtle">#E2E8F0</Color>
     <Color x:Key="Color.Surface.Card">#FFFFFF</Color>
+    <Color x:Key="Color.Surface.Warning">#FFF6D6</Color>
+    <Color x:Key="Color.Surface.Info">#F6F9FF</Color>
+    <Color x:Key="Color.Border.Info">#DCE7FF</Color>
     <Color x:Key="Color.Overlay">#80000000</Color>
 </ResourceDictionary>

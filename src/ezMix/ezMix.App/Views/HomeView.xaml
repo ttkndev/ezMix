@@ -59,8 +59,8 @@
                                    FontSize="24"
                                    Margin="0,0,0,16"/>
 
-                        <UniformGrid Columns="2">
-                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="0,0,10,10">
+                        <WrapPanel ItemWidth="492" Orientation="Horizontal">
+                            <Border Background="{DynamicResource Brush.Surface.Info}" CornerRadius="14" BorderBrush="{DynamicResource Brush.Border.Info}" BorderThickness="1" Padding="18" Margin="0,0,10,10">
                                 <StackPanel>
                                     <TextBlock Text="✅ Trắc nghiệm Nhiều lựa chọn" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,10"/>
                                     <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
@@ -75,7 +75,7 @@
                                 </StackPanel>
                             </Border>
 
-                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="10,0,0,10">
+                            <Border Background="{DynamicResource Brush.Surface.Info}" CornerRadius="14" BorderBrush="{DynamicResource Brush.Border.Info}" BorderThickness="1" Padding="18" Margin="10,0,0,10">
                                 <StackPanel>
                                     <TextBlock Text="✔️ Trắc nghiệm Đúng–Sai" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,10"/>
                                     <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
@@ -93,7 +93,7 @@
                                 </StackPanel>
                             </Border>
 
-                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="0,10,10,0">
+                            <Border Background="{DynamicResource Brush.Surface.Info}" CornerRadius="14" BorderBrush="{DynamicResource Brush.Border.Info}" BorderThickness="1" Padding="18" Margin="0,10,10,0">
                                 <StackPanel>
                                     <TextBlock Text="✍️ Trắc nghiệm Trả lời ngắn" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,10"/>
                                     <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
@@ -103,7 +103,7 @@
                                 </StackPanel>
                             </Border>
 
-                            <Border Background="#F6F9FF" CornerRadius="14" BorderBrush="#DCE7FF" BorderThickness="1" Padding="18" Margin="10,10,0,0">
+                            <Border Background="{DynamicResource Brush.Surface.Info}" CornerRadius="14" BorderBrush="{DynamicResource Brush.Border.Info}" BorderThickness="1" Padding="18" Margin="10,10,0,0">
                                 <StackPanel>
                                     <TextBlock Text="🧾 Tự luận" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource Brush.Brand.Accent}" Margin="0,0,0,10"/>
                                     <TextBlock Text="Câu 1: Nội dung câu hỏi?" Style="{StaticResource BodyTextStyle}" Margin="0,0,0,5"/>
@@ -117,7 +117,7 @@
                                                Margin="0,8,0,0"/>
                                 </StackPanel>
                             </Border>
-                        </UniformGrid>
+                        </WrapPanel>
                     </StackPanel>
                 </Border>
 
