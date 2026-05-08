@@ -1,65 +1,51 @@
 ﻿using ezMix.App.Assets.Core;
 using ezMix.App.Models;
+using ezMix.App.Services;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace ezMix.App.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private readonly INavigationService _navigationService;
+        private readonly IExternalLinkService _externalLinkService;
+
         private BaseViewModel _currentView = null;
         private bool _isBusy = false;
         private string _overlayMessage = "Đang tải...";
         private string _subTitle = string.Empty;
 
-        public ObservableCollection<FooterLink> FooterItems { get; }
+        public ObservableCollection<FooterLink> SocialItems { get; }
+        public ObservableCollection<FooterLink> ContactItems { get; }
 
-        public RelayCommand HomeCommand { get; set; }
-        public RelayCommand AboutCommand { get; set; }
-        public RelayCommand OpenFooterActionCommand { get; set; }
+        public RelayCommand HomeCommand { get; }
+        public RelayCommand AboutCommand { get; }
+        public RelayCommand OpenFooterActionCommand { get; }
 
-
-        private readonly HomeViewModel _homeViewModel;
-        private readonly AboutViewModel _aboutViewModel;
-
-        public MainViewModel(
-            HomeViewModel homeViewModel,
-            AboutViewModel aboutViewModel)
-        { 
-            _homeViewModel = homeViewModel;
-            _aboutViewModel = aboutViewModel;
+        public MainViewModel(INavigationService navigationService, IExternalLinkService externalLinkService)
+        {
+            _navigationService = navigationService;
+            _externalLinkService = externalLinkService;
 
             HomeCommand = new RelayCommand(_ => NavigateHome());
-            AboutCommand = new RelayCommand(_ => NavigateContact());
+            AboutCommand = new RelayCommand(_ => NavigateAbout());
             OpenFooterActionCommand = new RelayCommand(ExecuteFooterAction);
 
-            FooterItems = new ObservableCollection<FooterLink>
+            SocialItems = new ObservableCollection<FooterLink>
             {
-                new FooterLink("📘 Facebook", "https://www.facebook.com"),
-                new FooterLink("💬 Zalo", "https://zalo.me/g/rxncpe995"),
-                new FooterLink("🎬 Youtube", "https://www.youtube.com"),
-                new FooterLink("🌐 Website", "https://ttkndev.com"),
-                new FooterLink("📞 0775 426 999", "tel:+84775426999"),
-                new FooterLink("📧 ttkndev@gmail.com", "mailto:ttkndev@gmail.com")
+                new FooterLink("Facebook", "https://www.facebook.com"),
+                new FooterLink("Zalo", "https://zalo.me/g/rxncpe995"),
+                new FooterLink("Youtube", "https://www.youtube.com"),
+                new FooterLink("Website", "https://ttkndev.com")
+            };
+
+            ContactItems = new ObservableCollection<FooterLink>
+            {
+                new FooterLink("0775 426 999", "tel:+84775426999"),
+                new FooterLink("ttkndev@gmail.com", "mailto:ttkndev@gmail.com")
             };
 
             NavigateHome();
-        }
-
-        private static void ExecuteFooterAction(object parameter)
-        {
-            var actionValue = parameter as string;
-            if (string.IsNullOrWhiteSpace(actionValue))
-            {
-                return;
-            }
-
-            var startInfo = new ProcessStartInfo(actionValue)
-            {
-                UseShellExecute = true
-            };
-
-            Process.Start(startInfo);
         }
 
         public BaseViewModel CurrentView { get => _currentView; set => SetProperty(ref _currentView, value); }
@@ -67,7 +53,23 @@ namespace ezMix.App.ViewModels
         public string OverlayMessage { get => _overlayMessage; set => SetProperty(ref _overlayMessage, value); }
         public string SubTitle { get => _subTitle; set => SetProperty(ref _subTitle, value); }
 
-        private void NavigateHome() => CurrentView = _homeViewModel;
-        private void NavigateContact() => CurrentView = _aboutViewModel;
+        private void ExecuteFooterAction(object parameter)
+        {
+            _externalLinkService.Open(parameter as string ?? string.Empty);
+        }
+
+        private void NavigateHome()
+        {
+            _navigationService.NavigateHome();
+            CurrentView = _navigationService.CurrentView;
+            SubTitle = _navigationService.CurrentSubtitle;
+        }
+
+        private void NavigateAbout()
+        {
+            _navigationService.NavigateAbout();
+            CurrentView = _navigationService.CurrentView;
+            SubTitle = _navigationService.CurrentSubtitle;
+        }
     }
 }
